@@ -55,13 +55,6 @@
               "version": "[8.0.100, )",
               "generatePathProperty": true
             },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.0, )",
-              "autoReferenced": true,
-              "generatePathProperty": true
-            },
             "Siren": {
               "target": "Package",
               "version": "[0.3.2, )",

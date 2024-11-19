@@ -240,6 +240,7 @@
 /Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Release/net8.0/osx-x64/arcIsaProcessMermaid.AssemblyInfoInputs.cache
 /Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Release/net8.0/osx-x64/arcIsaProcessMermaid.AssemblyInfo.fs
 /Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Release/net8.0/osx-x64/arcIsaProcessMermaid.fsproj.CoreCompileInputs.cache
+/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Release/net8.0/osx-x64/arcIsaProcessMermaid.sourcelink.json
 /Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Release/net8.0/osx-x64/arcIsaProcessMermaid.fsproj.CopyComplete
 /Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Release/net8.0/osx-x64/arcIsaProcessMermaid.dll
 /Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Release/net8.0/osx-x64/refint/arcIsaProcessMermaid.dll

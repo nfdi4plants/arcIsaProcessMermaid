@@ -42,13 +42,13 @@ src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ~/datahub-data
 ## publish macos
 
 ```bash
-dotnet publish --runtime osx-x64 --configuration Release -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true
+dotnet publish --runtime osx-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
 ```
 
 
 ## add to local bin
 
 ```bash
-chmod a+x src/arcIsaProcessMermaid/bin/Release/net8.0/osx-x64/arcIsaProcessMermaid
-cp src/arcIsaProcessMermaid/bin/Release/net8.0/osx-x64/arcIsaProcessMermaid /usr/local/bin
+chmod a+x src/arcIsaProcessMermaid/bin/Release/net8.0/osx-x64/publish/arcIsaProcessMermaid
+cp src/arcIsaProcessMermaid/bin/Release/net8.0/osx-x64/publish/arcIsaProcessMermaid /usr/local/bin
 ```

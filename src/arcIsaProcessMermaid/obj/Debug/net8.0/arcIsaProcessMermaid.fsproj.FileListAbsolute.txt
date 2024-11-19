@@ -65,3 +65,4 @@
 /Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Debug/net8.0/arcIsaProcessMermaid.pdb
 /Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Debug/net8.0/arcIsaProcessMermaid.genruntimeconfig.cache
 /Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Debug/net8.0/ref/arcIsaProcessMermaid.dll
+/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/Debug/net8.0/arcIsaProcessMermaid.sourcelink.json
