@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/dominikbrilhaus/.nuget/packages/</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/dominikbrilhaus/.nuget/packages/</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.8.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="/Users/dominikbrilhaus/.nuget/packages/" />
+  </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.net.illink.tasks/8.0.0/build/Microsoft.NET.ILLink.Tasks.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.illink.tasks/8.0.0/build/Microsoft.NET.ILLink.Tasks.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">/Users/dominikbrilhaus/.nuget/packages/fsharp.core/8.0.100</PkgFSharp_Core>
+    <PkgSiren Condition=" '$(PkgSiren)' == '' ">/Users/dominikbrilhaus/.nuget/packages/siren/0.3.2</PkgSiren>
+    <PkgMicrosoft_NET_ILLink_Tasks Condition=" '$(PkgMicrosoft_NET_ILLink_Tasks)' == '' ">/Users/dominikbrilhaus/.nuget/packages/microsoft.net.illink.tasks/8.0.0</PkgMicrosoft_NET_ILLink_Tasks>
+    <PkgArgu Condition=" '$(PkgArgu)' == '' ">/Users/dominikbrilhaus/.nuget/packages/argu/6.2.4</PkgArgu>
+    <PkgARCtrl_QueryModel Condition=" '$(PkgARCtrl_QueryModel)' == '' ">/Users/dominikbrilhaus/.nuget/packages/arctrl.querymodel/2.0.2</PkgARCtrl_QueryModel>
+    <PkgARCtrl_NET Condition=" '$(PkgARCtrl_NET)' == '' ">/Users/dominikbrilhaus/.nuget/packages/arctrl.net/2.0.2</PkgARCtrl_NET>
+  </PropertyGroup>
+</Project>

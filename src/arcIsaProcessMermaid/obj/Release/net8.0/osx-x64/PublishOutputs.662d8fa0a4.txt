@@ -1,0 +1,2 @@
+/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Release/net8.0/osx-x64/publish/arcIsaProcessMermaid.pdb
+/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Release/net8.0/osx-x64/publish/arcIsaProcessMermaid

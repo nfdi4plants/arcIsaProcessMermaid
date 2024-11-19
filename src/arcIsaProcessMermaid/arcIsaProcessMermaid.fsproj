@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ARCtrl.NET" Version="2.0.2" />
+    <PackageReference Include="ARCtrl.QueryModel" Version="2.0.2" />
+    <PackageReference Include="Argu" Version="6.2.4" />
+    <PackageReference Include="Siren" Version="0.3.2" />
+  </ItemGroup>
+
+</Project>
