@@ -51,7 +51,7 @@ let createIsaMermaid (arc : ARC) =
             flowchart.subgraph(sid, [
 
                 for p in s do
-                    flowchart.node(p.Name.Replace(" ", "-"))            
+                    flowchart.node(p.Name.Replace(" ", "-"), p.Name)           
                     ])
 
         // add assay subgraphs
@@ -60,7 +60,7 @@ let createIsaMermaid (arc : ARC) =
             flowchart.subgraph("Assay:" + a.Identifier, [
 
                 for p in a do
-                    flowchart.node(p.Name.Replace(" ", "-"))            
+                    flowchart.node(p.Name.Replace(" ", "-"), p.Name)            
                     ])
 
         // add process-to-process edges, with sample numbers as edge name
