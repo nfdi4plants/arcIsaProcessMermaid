@@ -20,6 +20,21 @@ let loadARCfromROCrate (arcRocPath : string) =
         |> string
         |> ARC.fromROCrateJsonString
 
+// Generate html links
+let generateHtmlLink (url : string) (text : string) =
+    $"<a href='{url}'>{text}</a>"
+
+// Build link to a study directory
+let generateStudyLinkFromRoot (studyID : string) (arcRoot: string) =
+    
+    let filePath = System.IO.Path.Join(arcRoot, "studies", studyID)
+    
+    generateHtmlLink filePath studyID
+
+
+let createMermaidLabel (id: string) (label: string) =
+    $"{id}[{label}]"
+
 // Determine whether one process precedes another
 // based on min 1 intersecting Input/Output reference
 
@@ -54,13 +69,17 @@ let createIsaMermaid (arc : ARC) =
         
         for s in studies do
 
-            let sid = "Study:" + s.Identifier
-                       
-            // add links to studies
-            flowchart.linkArrow(investigation.Identifier, sid)
+            // let sid = "Study:" + s.Identifier
+                        
+            let sLabel = "Study:" + generateStudyLinkFromRoot s.Identifier "."
+
+            let subgraphLabel = createMermaidLabel s.Identifier sLabel
+
+            // link studies to investigation
+            flowchart.linkArrow(investigation.Identifier, s.Identifier)
             
             // add study subgraphs
-            flowchart.subgraph(sid, [
+            flowchart.subgraph(subgraphLabel, [
 
                 for p in s do
                     flowchart.node(p.Name.Replace(" ", "-"), p.Name)
@@ -69,7 +88,12 @@ let createIsaMermaid (arc : ARC) =
         // add assay subgraphs
 
         for a in assays do
-            flowchart.subgraph("Assay:" + a.Identifier, [
+
+            let aLabel = "Assay:" + generateStudyLinkFromRoot a.Identifier "."
+
+            let subgraphAssayLabel = createMermaidLabel a.Identifier aLabel
+
+            flowchart.subgraph(subgraphAssayLabel, [
 
                 for p in a do
                     flowchart.node(p.Name.Replace(" ", "-"), p.Name)            
