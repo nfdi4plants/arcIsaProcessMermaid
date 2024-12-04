@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj": {}
+    "/Users/dominikbrilhaus/github/Brilator/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj": {}
   },
   "projects": {
-    "/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj": {
+    "/Users/dominikbrilhaus/github/Brilator/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
+        "projectUniqueName": "/Users/dominikbrilhaus/github/Brilator/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
         "projectName": "arcIsaProcessMermaid",
-        "projectPath": "/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
+        "projectPath": "/Users/dominikbrilhaus/github/Brilator/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
         "packagesPath": "/Users/dominikbrilhaus/.nuget/packages/",
-        "outputPath": "/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/",
+        "outputPath": "/Users/dominikbrilhaus/github/Brilator/arcIsaProcessMermaid/src/arcIsaProcessMermaid/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dominikbrilhaus/.nuget/NuGet/NuGet.Config"

@@ -35,9 +35,8 @@ src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid --help
 ## local test
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ~/datahub-dataplant/hhu-plant-biochemistry/Samuilov-2018-BOU-PSP
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ~/datahub-dataplant/Facultative-CAM-in-Talinum/
 ```
-
 
 ## publish macos
 

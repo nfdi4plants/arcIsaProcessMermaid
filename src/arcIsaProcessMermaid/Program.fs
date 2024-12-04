@@ -1,8 +1,64 @@
-﻿open ARCtrl.NET
+﻿// Script to write a minimal markdown containing a mermaid graph
+// that displays an ARC's connections of ISA processes
+// from ARC investigation through studies and assays
+
+open ARCtrl.NET
 open ARCtrl
 open ARCtrl.QueryModel
 open Siren
 open Argu
+open System
+
+// Load ARC from an RO-Crate file
+let tryLoadARCfromROCrate (arcRocPath : string) = 
+    try
+        arcRocPath
+        |> System.IO.File.ReadAllText 
+        |> ARC.fromROCrateJsonString
+        |> Some
+    with 
+    | err -> None
+
+let tryLoadARCFromScaffold (arcPath : string) = 
+    try
+        ARC.load(arcPath)
+        |> Some
+    with 
+    | err -> None
+
+let tryLoadARCFromAny (arcPath) =
+    printfn "%s" $"## Loading ARC from {arcPath}"
+
+    match tryLoadARCfromROCrate arcPath with
+    | Some arc -> Some arc 
+    | None ->
+        printfn "%s" "### Could not load ARC from ROCrate \n --> trying to load ARC scaffold"; 
+        match tryLoadARCFromScaffold arcPath with
+        | Some arc -> Some arc 
+        | None -> 
+            printfn "%s" "### Could not load ARC from scaffold";
+            None
+
+// Generate html links
+let generateHtmlLink (url : string) (text : string) =
+    $"<a href='{url}'>{text}</a>"
+
+// Build link to a study directory
+let generateStudyLinkFromRoot (studyID : string) (arcRoot: string) =
+    
+    let relStudyPath = ArcPathHelper.getStudyFolderPath studyID
+
+    let absStudyPath = System.IO.Path.Join(arcRoot, relStudyPath)
+        
+    generateHtmlLink absStudyPath studyID
+
+let generateAssayLinkFromRoot (assayID : string) (arcRoot: string) =
+    
+    let relAssayPath = ArcPathHelper.getAssayFolderPath assayID
+
+    let absAssayPath = System.IO.Path.Join(arcRoot, relAssayPath)
+        
+    generateHtmlLink absAssayPath assayID
 
 // Determine whether one process precedes another
 // based on min 1 intersecting Input/Output reference
@@ -17,10 +73,6 @@ let isPreviousProcessOf (processA: ArcTable) (processB: ArcTable) : bool =
 let numSamplesFromPreviousProcess (processA: ArcTable) (processB: ArcTable) : int = 
     Set.intersect (set processA.OutputNames) (set processB.InputNames)
     |> Seq.length
-
-// TODO: fix .Replace(" ", "-") to easily handle blanks in process names
-
-// Draw connections as mermaid string
 
 let createIsaMermaid (arc : ARC) =
 
@@ -43,21 +95,30 @@ let createIsaMermaid (arc : ARC) =
         for s in studies do
 
             let sid = "Study:" + s.Identifier
-                       
-            // add links to studies
+                        
+            let sLabel = "Study:" + generateStudyLinkFromRoot s.Identifier "."
+
+            // let subgraphLabel = createMermaidLabel s.Identifier sLabel
+
+            // link studies to investigation
             flowchart.linkArrow(investigation.Identifier, sid)
             
             // add study subgraphs
-            flowchart.subgraph(sid, [
+            flowchart.subgraphNamed(sid, sLabel, [
 
                 for p in s do
-                    flowchart.node(p.Name.Replace(" ", "-"), p.Name)           
+                    flowchart.node(p.Name.Replace(" ", "-"), p.Name)
                     ])
 
         // add assay subgraphs
 
         for a in assays do
-            flowchart.subgraph("Assay:" + a.Identifier, [
+
+            let aid = "Assay:" + a.Identifier
+
+            let aLabel = "Assay:" + generateAssayLinkFromRoot a.Identifier "."
+
+            flowchart.subgraphNamed(aid, aLabel, [
 
                 for p in a do
                     flowchart.node(p.Name.Replace(" ", "-"), p.Name)            
@@ -75,48 +136,60 @@ let createIsaMermaid (arc : ARC) =
     ])
     |> siren.write
 
-// Load ARC and write mermaid to markdown file
+let arcIsaProcesses2mermaid (arc : ARC) (outputFileName : string) (mmd: bool) =
 
-let arcIsaProcesses2mermaid (arcPath : string) (outputFileName : string)  = 
-    let arc = ARC.load(arcPath)
-    [
-    "```mermaid"
-    createIsaMermaid arc
-    "```"
-    ]
-    |> fun c -> System.IO.File.WriteAllLines(outputFileName, c)
-
-
-
+    match mmd with
+    | false ->
+        let o = System.IO.Path.ChangeExtension(outputFileName, ".md")
+        ["```mermaid"; createIsaMermaid arc; "```"]
+        |> fun c -> System.IO.File.WriteAllLines(o, c)
+    | true ->
+        let o = System.IO.Path.ChangeExtension(outputFileName, ".mmd")
+        [createIsaMermaid arc]
+        |> fun c -> System.IO.File.WriteAllLines(o, c)
+  
 
 type CliArguments =
     | [<AltCommandLine("-a")>][<Unique>] Arcpath of path:string
-    | [<AltCommandLine("-o")>][<Unique>] Outfile of path:string
+    | [<AltCommandLine("-o")>][<Unique>] Outpath of path:string
+    | [<AltCommandLine("-mmd")>][<Unique>] OutputMMD
 
     interface IArgParserTemplate with
         member s.Usage =
             match s with
-            | Arcpath _ -> "Specify path to an ARC"
-            | Outfile _ -> "Specify a (text) file to write results to (Default: `arc-mermaid.md`)"
+            | Arcpath _ -> "specify path to an ARC"
+            | Outpath _ -> "specify a file path and name to write results to (Default: `./arc-mermaid`)"
+            | OutputMMD -> "whether to output a .mmd file instead of markdown"
 
 [<EntryPoint>]
 let main(args) =
+    let errorHandler = ProcessExiter(colorizer = function ErrorCode.HelpText -> None | _ -> Some ConsoleColor.Red)
 
-    let parser = ArgumentParser.Create<CliArguments>()
+    let parser = ArgumentParser.Create<CliArguments>(programName = "arcIsaProcessesSiren", errorHandler = errorHandler)
+
+    let usage = parser.PrintUsage()
+
+    printfn "%s" usage
 
     let results = parser.Parse (args)
 
+    let mmd = results.Contains OutputMMD
+
     match results.TryGetResult(CliArguments.Arcpath) with
-    | Some i -> 
-        match results.TryGetResult(CliArguments.Outfile) with
+    | Some i ->
+
+        let arc = tryLoadARCFromAny(i)
+
+        match results.TryGetResult(CliArguments.Outpath) with
         | Some o -> 
-            arcIsaProcesses2mermaid i o
+            arcIsaProcesses2mermaid arc.Value o mmd
             1
         | None -> 
-            printfn "Outfile missing; Defaulting to `arc-mermaid.md`"
+            printfn "Outpath missing; Defaulting to `./arc-mermaid.md`"
             let o = "arc-mermaid.md"
-            arcIsaProcesses2mermaid i o
+            arcIsaProcesses2mermaid arc.Value o mmd
             1
     | None ->
         printfn "Arcpath missing"
         0
+

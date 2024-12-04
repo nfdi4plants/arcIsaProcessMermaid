@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IkoZF36LNDSqrY5V+wPSGvaHknjkHrEq0k9joZUj6MZK2gYAOV920s6dyoooeoQsdlrCbmvvvQzoPQJ3J2yDAA==",
+  "dgSpecHash": "jRnvU0/sfl1QQ0nhsMbQPuITd48OPQH7XKVUJ8ZHOEuGuW52bxysfbCmLvI8Y5XSv7+oEb2q4YbGrDfDqHtyVA==",
   "success": true,
-  "projectFilePath": "/Users/dominikbrilhaus/Desktop/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
+  "projectFilePath": "/Users/dominikbrilhaus/github/Brilator/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
   "expectedPackageFiles": [
     "/Users/dominikbrilhaus/.nuget/packages/arctrl/2.1.0-alpha.4/arctrl.2.1.0-alpha.4.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/arctrl.contract/2.1.0-alpha.4/arctrl.contract.2.1.0-alpha.4.nupkg.sha512",
