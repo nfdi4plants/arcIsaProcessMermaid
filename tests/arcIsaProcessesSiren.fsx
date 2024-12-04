@@ -12,6 +12,7 @@ open ARCtrl
 open ARCtrl.QueryModel
 open Siren
 open Argu
+open System
 
 // Load ARC from an RO-Crate file
 let tryLoadARCfromROCrate (arcRocPath : string) = 
@@ -143,18 +144,37 @@ let createIsaMermaid (arc : ARC) =
 
 // Write ARC mermaid to markdown file
 
-let arcIsaProcesses2mermaid (arc : ARC) (outputFileName : string) (markdown: bool) =
+// let arcIsaProcesses2mermaid (arc : ARC) (outputFileName : string) (mmd: bool) =
 
-    match markdown with
-    | true ->
+//     match mmd with
+//     | false ->
+//         (
+//         System.IO.Path.ChangeExtension(outputFileName, ".md"),
+//         ["```mermaid"; createIsaMermaid arc; "```"]
+//         )
+//     | true ->
+//         (
+//         System.IO.Path.ChangeExtension(outputFileName, ".mmd"),
+//         [createIsaMermaid arc]
+//         )
+
+// let mermaidToFile (mermaid:string list) (fileName : string) = 
+//     System.IO.File.WriteAllLines(fileName,mermaid)
+
+
+
+let arcIsaProcesses2mermaid (arc : ARC) (outputFileName : string) (mmd: bool) =
+
+    match mmd with
+    | false ->
         let o = System.IO.Path.ChangeExtension(outputFileName, ".md")
         ["```mermaid"; createIsaMermaid arc; "```"]
         |> fun c -> System.IO.File.WriteAllLines(o, c)
-    | false ->
+    | true ->
         let o = System.IO.Path.ChangeExtension(outputFileName, ".mmd")
         [createIsaMermaid arc]
         |> fun c -> System.IO.File.WriteAllLines(o, c)
-
+  
 
 type CliArguments =
     | [<AltCommandLine("-a")>][<Unique>] Arcpath of path:string
@@ -166,21 +186,17 @@ type CliArguments =
             match s with
             | Arcpath _ -> "specify path to an ARC"
             | Outpath _ -> "specify a file path and name to write results to (Default: `./arc-mermaid`)"
-            | OutputMMD _ -> "whether to output a .mmd file instead of markdown"
+            | OutputMMD -> "whether to output a .mmd file instead of markdown"
 
-let parser = ArgumentParser.Create<CliArguments>(programName = "arcIsaProcessesSiren")
-
-let usage = parser.PrintUsage()
-
-let results = parser.Parse [| "--arcpath"; "/Users/dominikbrilhaus/datahub-dataplant/Facultative-CAM-in-Talinum/" ; "--outpath"; "CAM" ; "-mmd"|]
-// let results = parser.Parse [| "--arcpath"; "2024-11-26T14-38-14_datahubArcId1974_rocrate.json" ; "--outpath"; "test" ; "-mmd"|]
-
-// let all = results.GetAllResults()
-
-[<EntryPoint>]
+// [<EntryPoint>]
 let main(args) =
+    let errorHandler = ProcessExiter(colorizer = function ErrorCode.HelpText -> None | _ -> Some ConsoleColor.Red)
 
-    let parser = ArgumentParser.Create<CliArguments>()
+    let parser = ArgumentParser.Create<CliArguments>(programName = "arcIsaProcessesSiren", errorHandler = errorHandler)
+
+    let usage = parser.PrintUsage()
+
+    printfn "%s" usage
 
     let results = parser.Parse (args)
 
@@ -204,16 +220,10 @@ let main(args) =
         printfn "Arcpath missing"
         0
 
+let args = [| 
+            "--arcpath"; "/Users/dominikbrilhaus/datahub-dataplant/Facultative-CAM-in-Talinum/" ; 
+            "--outpath"; "CAM";
+            // "-mmd"
+            |]
 
-
-// let arcpath = results.GetResult Arcpath
-// let outpath = results.GetResult Outpath
-
-
-// printfn "Printing output to %s" outpath
-
-// // let absPath = System.IO.Path.Join(__SOURCE_DIRECTORY__, arcpath)
-
-
-
-// arcIsaProcesses2mermaid arc.Value outpath mmd
+main args
