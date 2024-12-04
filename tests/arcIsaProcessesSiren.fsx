@@ -5,20 +5,43 @@
 #r "nuget: ARCtrl.NET"
 #r "nuget: ARCtrl.QueryModel"
 #r "nuget: Siren"
-#r "nuget: FSharp.Data"
+#r "nuget: Argu"
 
-open FSharp.Data
 open ARCtrl.NET
 open ARCtrl
 open ARCtrl.QueryModel
 open Siren
-
+open Argu
 
 // Load ARC from an RO-Crate file
-let loadARCfromROCrate (arcRocPath : string) = 
-    JsonValue.Load(arcRocPath)
-        |> string
+let tryLoadARCfromROCrate (arcRocPath : string) = 
+    try
+        arcRocPath
+        |> System.IO.File.ReadAllText 
         |> ARC.fromROCrateJsonString
+        |> Some
+    with 
+    | err -> None
+
+let tryLoadARCFromScaffold (arcPath : string) = 
+    try
+        ARC.load(arcPath)
+        |> Some
+    with 
+    | err -> None
+
+let tryLoadARCFromAny (arcPath) =
+    printfn "%s" $"## Loading ARC from {arcPath}"
+
+    match tryLoadARCfromROCrate arcPath with
+    | Some arc -> Some arc 
+    | None ->
+        printfn "%s" "### Could not load ARC from ROCrate \n --> trying to load ARC scaffold"; 
+        match tryLoadARCFromScaffold arcPath with
+        | Some arc -> Some arc 
+        | None -> 
+            printfn "%s" "### Could not load ARC from scaffold";
+            None
 
 // Generate html links
 let generateHtmlLink (url : string) (text : string) =
@@ -27,13 +50,19 @@ let generateHtmlLink (url : string) (text : string) =
 // Build link to a study directory
 let generateStudyLinkFromRoot (studyID : string) (arcRoot: string) =
     
-    let filePath = System.IO.Path.Join(arcRoot, "studies", studyID)
+    let relStudyPath = ArcPathHelper.getStudyFolderPath studyID
+
+    let absStudyPath = System.IO.Path.Join(arcRoot, relStudyPath)
+        
+    generateHtmlLink absStudyPath studyID
+
+let generateAssayLinkFromRoot (assayID : string) (arcRoot: string) =
     
-    generateHtmlLink filePath studyID
+    let relAssayPath = ArcPathHelper.getAssayFolderPath assayID
 
-
-let createMermaidLabel (id: string) (label: string) =
-    $"{id}[{label}]"
+    let absAssayPath = System.IO.Path.Join(arcRoot, relAssayPath)
+        
+    generateHtmlLink absAssayPath assayID
 
 // Determine whether one process precedes another
 // based on min 1 intersecting Input/Output reference
@@ -69,17 +98,17 @@ let createIsaMermaid (arc : ARC) =
         
         for s in studies do
 
-            // let sid = "Study:" + s.Identifier
+            let sid = "Study:" + s.Identifier
                         
             let sLabel = "Study:" + generateStudyLinkFromRoot s.Identifier "."
 
-            let subgraphLabel = createMermaidLabel s.Identifier sLabel
+            // let subgraphLabel = createMermaidLabel s.Identifier sLabel
 
             // link studies to investigation
-            flowchart.linkArrow(investigation.Identifier, s.Identifier)
+            flowchart.linkArrow(investigation.Identifier, sid)
             
             // add study subgraphs
-            flowchart.subgraph(subgraphLabel, [
+            flowchart.subgraphNamed(sid, sLabel, [
 
                 for p in s do
                     flowchart.node(p.Name.Replace(" ", "-"), p.Name)
@@ -89,11 +118,11 @@ let createIsaMermaid (arc : ARC) =
 
         for a in assays do
 
-            let aLabel = "Assay:" + generateStudyLinkFromRoot a.Identifier "."
+            let aid = "Assay:" + a.Identifier
 
-            let subgraphAssayLabel = createMermaidLabel a.Identifier aLabel
+            let aLabel = "Assay:" + generateAssayLinkFromRoot a.Identifier "."
 
-            flowchart.subgraph(subgraphAssayLabel, [
+            flowchart.subgraphNamed(aid, aLabel, [
 
                 for p in a do
                     flowchart.node(p.Name.Replace(" ", "-"), p.Name)            
@@ -126,17 +155,19 @@ let arcIsaProcesses2mermaid (arc : ARC) (outputFileName : string) (markdown: boo
         [createIsaMermaid arc]
         |> fun c -> System.IO.File.WriteAllLines(o, c)
 
+
 // let args : string array = fsi.CommandLineArgs |> Array.tail
 // let arcPath = args.[0]
 // let outputFileName = args.[1]
+// let markdown = args.[2]
 
 // printfn "Printing output to %s" outputFileName
 
 
 let outputFileName = "test"
 let arcRocPath = "2024-11-26T14-38-14_datahubArcId1974_rocrate.json"
-let arcRocFullPath = System.IO.Path.Join(__SOURCE_DIRECTORY__, arcRocPath)
-let arc = loadARCfromROCrate(arcRocFullPath)
+let arcPath = System.IO.Path.Join(__SOURCE_DIRECTORY__, arcRocPath)
 
+let arc = tryLoadARCFromAny(arcPath)
 
-arcIsaProcesses2mermaid arc outputFileName true
+arcIsaProcesses2mermaid arc.Value outputFileName true
