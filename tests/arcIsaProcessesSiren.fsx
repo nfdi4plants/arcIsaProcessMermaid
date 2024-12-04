@@ -156,18 +156,64 @@ let arcIsaProcesses2mermaid (arc : ARC) (outputFileName : string) (markdown: boo
         |> fun c -> System.IO.File.WriteAllLines(o, c)
 
 
-// let args : string array = fsi.CommandLineArgs |> Array.tail
-// let arcPath = args.[0]
-// let outputFileName = args.[1]
-// let markdown = args.[2]
+type CliArguments =
+    | [<AltCommandLine("-a")>][<Unique>] Arcpath of path:string
+    | [<AltCommandLine("-o")>][<Unique>] Outpath of path:string
+    | [<AltCommandLine("-mmd")>][<Unique>] OutputMMD
 
-// printfn "Printing output to %s" outputFileName
+    interface IArgParserTemplate with
+        member s.Usage =
+            match s with
+            | Arcpath _ -> "specify path to an ARC"
+            | Outpath _ -> "specify a file path and name to write results to (Default: `./arc-mermaid`)"
+            | OutputMMD _ -> "whether to output a .mmd file instead of markdown"
+
+let parser = ArgumentParser.Create<CliArguments>(programName = "arcIsaProcessesSiren")
+
+let usage = parser.PrintUsage()
+
+let results = parser.Parse [| "--arcpath"; "/Users/dominikbrilhaus/datahub-dataplant/Facultative-CAM-in-Talinum/" ; "--outpath"; "CAM" ; "-mmd"|]
+// let results = parser.Parse [| "--arcpath"; "2024-11-26T14-38-14_datahubArcId1974_rocrate.json" ; "--outpath"; "test" ; "-mmd"|]
+
+// let all = results.GetAllResults()
+
+[<EntryPoint>]
+let main(args) =
+
+    let parser = ArgumentParser.Create<CliArguments>()
+
+    let results = parser.Parse (args)
+
+    let mmd = results.Contains OutputMMD
+
+    match results.TryGetResult(CliArguments.Arcpath) with
+    | Some i ->
+
+        let arc = tryLoadARCFromAny(i)
+
+        match results.TryGetResult(CliArguments.Outpath) with
+        | Some o -> 
+            arcIsaProcesses2mermaid arc.Value o mmd
+            1
+        | None -> 
+            printfn "Outpath missing; Defaulting to `./arc-mermaid.md`"
+            let o = "arc-mermaid.md"
+            arcIsaProcesses2mermaid arc.Value o mmd
+            1
+    | None ->
+        printfn "Arcpath missing"
+        0
 
 
-let outputFileName = "test"
-let arcRocPath = "2024-11-26T14-38-14_datahubArcId1974_rocrate.json"
-let arcPath = System.IO.Path.Join(__SOURCE_DIRECTORY__, arcRocPath)
 
-let arc = tryLoadARCFromAny(arcPath)
+// let arcpath = results.GetResult Arcpath
+// let outpath = results.GetResult Outpath
 
-arcIsaProcesses2mermaid arc.Value outputFileName true
+
+// printfn "Printing output to %s" outpath
+
+// // let absPath = System.IO.Path.Join(__SOURCE_DIRECTORY__, arcpath)
+
+
+
+// arcIsaProcesses2mermaid arc.Value outpath mmd
