@@ -35,14 +35,15 @@ src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid --help
 ## local test
 
 ### using path to ARC scaffold
+
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ~/datahub-dataplant/Facultative-CAM-in-Talinum/
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ./tests/ArcPrototype -o prototype
 ```
 
 ### using path to ARC RO-Crate
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a  "./tests/arc-ro-crate-metadata.json"
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a  ./tests/arc-ro-crate-metadata.json -o cam
 ```
 
 ## publish macos
