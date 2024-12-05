@@ -312,7 +312,7 @@ let main(args) =
         0
 
 let args = [| 
-            "--arcpath"; "/Users/dominikbrilhaus/datahub-dataplant/Facultative-CAM-in-Talinum/" ; 
+            "--arcpath"; "tests/arc-ro-crate-metadata.json" ; 
             "--outpath"; "CAM";
             // "-mmd"
             |]

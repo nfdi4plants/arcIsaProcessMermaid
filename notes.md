@@ -34,8 +34,15 @@ src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid --help
 
 ## local test
 
+### using path to ARC scaffold
 ```bash
 src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ~/datahub-dataplant/Facultative-CAM-in-Talinum/
+```
+
+### using path to ARC RO-Crate
+
+```bash
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a  "./tests/arc-ro-crate-metadata.json"
 ```
 
 ## publish macos
@@ -43,7 +50,6 @@ src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ~/datahub-data
 ```bash
 dotnet publish --runtime osx-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
 ```
-
 
 ## add to local bin
 
