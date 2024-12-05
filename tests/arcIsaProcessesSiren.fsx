@@ -240,16 +240,16 @@ let createIsaMermaid (flowDirection : Direction) (arc : ARC) =
     
 
 
-let arcIsaProcesses2mermaid (arc : ARC) (outputFileName : string) (mmd: bool) =
+let arcIsaProcesses2mermaid (flowDirection : Direction) (arc : ARC) (outputFileName : string) (mmd: bool) =
 
     match mmd with
     | false ->
         let o = System.IO.Path.ChangeExtension(outputFileName, ".md")
-        ["```mermaid"; createIsaMermaid direction.td arc; "```"]
+        ["```mermaid"; createIsaMermaid flowDirection arc; "```"]
         |> fun c -> System.IO.File.WriteAllLines(o, c)
     | true ->
         let o = System.IO.Path.ChangeExtension(outputFileName, ".mmd")
-        [createIsaMermaid direction.td arc]
+        [createIsaMermaid flowDirection arc]
         |> fun c -> System.IO.File.WriteAllLines(o, c)
   
 
@@ -260,6 +260,7 @@ type CliArguments =
     | [<AltCommandLine("-a")>][<Unique>] Arcpath of path:string
     | [<AltCommandLine("-o")>][<Unique>] Outpath of path:string
     | [<AltCommandLine("-mmd")>][<Unique>] OutputMMD
+    // | [<AltCommandLine("-fd")>][<Unique>] FlowDirection of string
 
     interface IArgParserTemplate with
         member s.Usage =
@@ -267,6 +268,8 @@ type CliArguments =
             | Arcpath _ -> "specify path to an ARC"
             | Outpath _ -> "specify a file path and name to write results to (Default: `./arc-mermaid`)"
             | OutputMMD -> "whether to output a .mmd file instead of markdown"
+            // | FlowDirection _ -> "(Default: `topDown`)"
+
 
 // [<EntryPoint>]
 let main(args) =
@@ -282,6 +285,14 @@ let main(args) =
 
     let mmd = results.Contains OutputMMD
 
+    // TODO: allow selection of flow direction via argument
+    let flowD  =  direction.topDown
+        // match results.TryGetResult(CliArguments.FlowDirection) with
+        //     | Some o -> 
+        //         o
+        //     | None ->
+                
+
     match results.TryGetResult(CliArguments.Arcpath) with
     | Some i ->
 
@@ -289,12 +300,12 @@ let main(args) =
 
         match results.TryGetResult(CliArguments.Outpath) with
         | Some o -> 
-            arcIsaProcesses2mermaid arc.Value o mmd
+            arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
         | None -> 
             printfn "Outpath missing; Defaulting to `./arc-mermaid.md`"
             let o = "arc-mermaid.md"
-            arcIsaProcesses2mermaid arc.Value o mmd
+            arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
     | None ->
         printfn "Arcpath missing"
