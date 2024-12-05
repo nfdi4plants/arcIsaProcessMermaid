@@ -23,12 +23,12 @@ Creates: [Facultative-CAM-in-Talinum.md](tests/Facultative-CAM-in-Talinum.md)
 ## Rationale
 
 Sure, mermaid graphs are not the tool of choice to display the overall complexity of ARCs.
-And they are from anything dynamic or interactive.
+And they are far from anything dynamic or interactive.
 
 However, mermaids in markdown
 
 - are quick and can easily be adapted
-- are static and should not break too easy (especially with type-safe F# library [Siren](https://www.nuget.org/packages/Siren))
+- are static and should not break too easily (especially with type-safe F# library [Siren](https://www.nuget.org/packages/Siren))
 - can readily be displayed in GitLab (i.e. [DataHUB](https://git.nfdi4plants.org)) or VSCode (with extensions)
 
 ## Idea
