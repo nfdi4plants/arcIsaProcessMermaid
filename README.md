@@ -10,7 +10,7 @@ Tool to generate a minimal markdown containing a mermaid graph that displays an 
 src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ./tests/ArcPrototype -o tests/ArcPrototype
 ```
 
-[ArcPrototype.md](tests/ArcPrototype.md)
+Creates: [ArcPrototype.md](tests/ArcPrototype.md)
 
 ### based on RO-Crate
 
