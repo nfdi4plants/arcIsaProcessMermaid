@@ -2,16 +2,35 @@
 
 Tool to generate a minimal markdown containing a mermaid graph that displays an ARC's connections of ISA processes from ARC investigation through studies and assays
 
-## download example ARC
+## Draw example mermaids
 
-e.g. via ARC commander
-
-```bash
-arc get -n -r https://git.nfdi4plants.org/muehlhaus/ArcPrototype
-```
-
-## draw a mermaid
+### based on ARC scaffold
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ArcPrototype
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ./tests/ArcPrototype -o tests/ArcPrototype
 ```
+
+[ArcPrototype.md](tests/ArcPrototype.md)
+
+### based on RO-Crate
+
+```bash
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a tests/arc-ro-crate-metadata.json -o tests/Facultative-CAM-in-Talinum
+```
+
+Creates: [Facultative-CAM-in-Talinum.md](tests/Facultative-CAM-in-Talinum.md)
+
+## Rationale
+
+Sure, mermaid graphs are not the tool of choice to display the overall complexity of ARCs.
+And they are from anything dynamic or interactive.
+
+However, mermaids in markdown
+
+- are quick and can easily be adapted
+- are static and should not break too easy (especially with type-safe F# library [Siren](https://www.nuget.org/packages/Siren))
+- can readily be displayed in GitLab (i.e. [DataHUB](https://git.nfdi4plants.org)) or VSCode (with extensions)
+
+## Idea
+
+Based on discussions before and during the [ARC-Process-GraphViz](https://github.com/nfdi4plants/ARC-Symposium/tree/main/ARC-Process-GraphViz/) project at ARC symposium 2024.
