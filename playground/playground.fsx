@@ -14,7 +14,7 @@ open Siren
 [
 siren.flowchart(direction.leftToRight, [
     flowchart.node("id", "label")
-    flowchart.subgraphNamed("id", "label", [])
+    flowchart.subgraphNamed("subgraphID", "label", [])
     ])
 |> siren.write
 ]
