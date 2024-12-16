@@ -1,9 +1,17 @@
+#r "nuget: ARCtrl"
 #r "nuget: ARCtrl.NET"
+#r "nuget: ARCtrl.QueryModel"
 
-#load "Arcutils.fs"
 
-open Arcutils
+#load "ArcUtils.fs"
+#load "ArcProcesses.fs"
+#load "Styling.fs"
 
-Arcload.tryLoadARCFromAny "playground/arc-ro-crate-metadata.json"
+open ArcUtils
+open ArcProcesses
+
+let arc = Arcload.tryLoadARCFromAny "playground/arc-ro-crate-metadata.json"
 
 Arcpaths.generateAssayLinkFromRoot "sqldjasd" "."
+
+

@@ -91,9 +91,6 @@ let assignMermaidClass (className : string) (classStates : string seq) =
     
     $"class {concatStates} {className};"
 
-//////////////////////////////////////////////////
-////////// Add style to nodes
-
 let createIsaMermaid (flowDirection : Direction) (arc : ARC) =
 
     let investigation = arc.ISA.Value
