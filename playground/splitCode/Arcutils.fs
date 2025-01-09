@@ -1,4 +1,4 @@
-namespace Arcutils
+namespace ArcUtils
 
 open ARCtrl.NET
 open ARCtrl
