@@ -38,8 +38,6 @@ let main(args) =
 
     let usage = parser.PrintUsage()
 
-    printfn "%s" usage
-
     let results = parser.Parse (args)
 
     let mmd = results.Contains OutputMMD
