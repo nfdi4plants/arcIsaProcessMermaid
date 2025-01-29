@@ -1,0 +1,16 @@
+arcDirectory:
+  class: Directory
+  path: ../../
+
+arc:performer:
+  - class: arc:Person
+    arc:first name: "Caroline"
+    arc:last name: "Ott"
+    arc:email: "ottj@rptu.de"
+    arc:affiliation: "RPTU Kaiserslautern/Landau"
+
+$namespaces:
+  arc: https://github.com/nfdi4plants/ARC_ontology
+
+$schemas:
+  - https://raw.githubusercontent.com/nfdi4plants/ARC_ontology/main/ARC_v2.0.owl

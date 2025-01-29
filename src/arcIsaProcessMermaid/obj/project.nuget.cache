@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jRnvU0/sfl1QQ0nhsMbQPuITd48OPQH7XKVUJ8ZHOEuGuW52bxysfbCmLvI8Y5XSv7+oEb2q4YbGrDfDqHtyVA==",
+  "dgSpecHash": "457uebz72+hW550KWlfBHLlT2grUVwHqwEu6169fHut5aq4T5NMMtw/jQZP36S7lguRJ5sncgNcIEUizDQIk3w==",
   "success": true,
-  "projectFilePath": "/Users/dominikbrilhaus/github/Brilator/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
+  "projectFilePath": "/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
   "expectedPackageFiles": [
     "/Users/dominikbrilhaus/.nuget/packages/arctrl/2.1.0-alpha.4/arctrl.2.1.0-alpha.4.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/arctrl.contract/2.1.0-alpha.4/arctrl.contract.2.1.0-alpha.4.nupkg.sha512",
@@ -45,8 +45,9 @@
     "/Users/dominikbrilhaus/.nuget/packages/thoth.json.core/0.4.0/thoth.json.core.0.4.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/thoth.json.newtonsoft/0.2.0/thoth.json.newtonsoft.0.2.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/yamlicious/0.0.1/yamlicious.0.0.1.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/microsoft.netcore.app.runtime.osx-x64/8.0.0/microsoft.netcore.app.runtime.osx-x64.8.0.0.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-x64/8.0.0/microsoft.aspnetcore.app.runtime.osx-x64.8.0.0.nupkg.sha512"
+    "/Users/dominikbrilhaus/.nuget/packages/microsoft.netcore.app.runtime.win-x64/8.0.0/microsoft.netcore.app.runtime.win-x64.8.0.0.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/8.0.0/microsoft.aspnetcore.app.runtime.win-x64.8.0.0.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/microsoft.netcore.app.host.win-x64/8.0.0/microsoft.netcore.app.host.win-x64.8.0.0.nupkg.sha512"
   ],
   "logs": [
     {
@@ -57,7 +58,7 @@
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0",
-        "net8.0/osx-x64"
+        "net8.0/win-x64"
       ]
     },
     {
@@ -68,7 +69,7 @@
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0",
-        "net8.0/osx-x64"
+        "net8.0/win-x64"
       ]
     },
     {
@@ -79,7 +80,7 @@
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0",
-        "net8.0/osx-x64"
+        "net8.0/win-x64"
       ]
     },
     {
@@ -90,7 +91,7 @@
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0",
-        "net8.0/osx-x64"
+        "net8.0/win-x64"
       ]
     }
   ]

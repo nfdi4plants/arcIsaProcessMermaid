@@ -7,18 +7,14 @@ Tool to generate a minimal markdown containing a mermaid graph that displays an 
 ### based on ARC scaffold
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ./tests/ArcPrototype -o tests/ArcPrototype
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a playground/example-arcs/arc-scaffold -o playground/ArcPrototype
 ```
-
-Creates: [ArcPrototype.md](tests/ArcPrototype.md)
 
 ### based on RO-Crate
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a tests/arc-ro-crate-metadata.json -o tests/Facultative-CAM-in-Talinum
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ./playground/example-arcs/arc-ro-crate-metadata.json -o playground/Facultative-CAM-in-Talinum
 ```
-
-Creates: [Facultative-CAM-in-Talinum.md](tests/Facultative-CAM-in-Talinum.md)
 
 ## Rationale
 

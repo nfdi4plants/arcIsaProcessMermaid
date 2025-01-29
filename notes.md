@@ -32,31 +32,9 @@ dotnet build src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
 src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid --help
 ```
 
-## local test
-
-### using path to ARC scaffold
-
-```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a ./tests/ArcPrototype -o prototype
-```
-
-### using path to ARC RO-Crate
-
-```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -a  ./tests/arc-ro-crate-metadata.json -o cam
-```
-
-## publish macos
+## publish executables
 
 ```bash
 dotnet publish --runtime osx-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
+dotnet publish --runtime win-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
 ```
-
-
-<!-- 
-## add to local bin
-
-```bash
-chmod a+x src/arcIsaProcessMermaid/bin/Release/net8.0/osx-x64/publish/arcIsaProcessMermaid
-cp src/arcIsaProcessMermaid/bin/Release/net8.0/osx-x64/publish/arcIsaProcessMermaid /usr/local/bin
-``` -->
