@@ -6,8 +6,8 @@
 
 #load "ArcUtils.fs"
 #load "ArcProcesses.fs"
-#load "ArcSiren.fs"
 #load "MermaidStyling.fs"
+#load "ArcSiren.fs"
 
 open ARCtrl.NET
 open ARCtrl
@@ -88,7 +88,7 @@ let main(args) =
 let args = [| 
             "--arcpath"; "playground/arc-ro-crate-metadata.json" ; 
             "--outpath"; "playground/test.md";
-            "-mmd"; "false";
+            // "-mmd"; "false";
             |]
 
 main args

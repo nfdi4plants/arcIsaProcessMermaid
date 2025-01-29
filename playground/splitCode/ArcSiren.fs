@@ -1,9 +1,5 @@
 module ArcSiren
 
-// #load "ArcUtils.fs"
-// #load "ArcProcesses.fs"
-// #load "MermaidStyling.fs"
-
 open ARCtrl
 open ARCtrl.QueryModel
 open Siren
@@ -72,9 +68,9 @@ let createIsaMermaidBody (flowDirection : Direction) (arc : ARC) =
         // add investigation start-node
         flowchart.node(investigation.Identifier) // probably obsolete, since the node is added by linking inv -> s below
         
-        //// adding "study:" and "assay: to the subgraph names to allow that study / 
+        /// adding "study:" and "assay: to the subgraph names to allow that study / 
         /// assay identifier and one of their process names are identical
-        //// otherwise this breaks with mermaid
+        /// otherwise this breaks with mermaid
         
         for s in studies do
 
