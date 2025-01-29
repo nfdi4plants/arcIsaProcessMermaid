@@ -26,7 +26,7 @@ type CliArguments =
         member s.Usage =
             match s with
             | Arcpath _ -> "specify path to an ARC"
-            | Outpath _ -> "specify a file path and name to write results to (Default: `./arc-mermaid`)"
+            | Outpath _ -> "specify a file path and name to write results to (Default: `<path/to/ARC/arc-mermaid>.md or .mmd`)"
             | OutputMMD -> "whether to output a .mmd file instead of markdown"
             // | FlowDirection _ -> "(Default: `topDown`)"
 
@@ -62,8 +62,11 @@ let main(args) =
             ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
         | None -> 
-            printfn "Outpath missing; Defaulting to `./arc-mermaid.md`"
-            let o = "arc-mermaid.md"
+            printfn "Outpath missing; Defaulting to `<path/to/ARC/arc-mermaid>.md or .mmd`"
+
+            let op = System.IO.Path.GetDirectoryName(i)
+            let o = System.IO.Path.Join(op, "arc-mermaid")
+
             ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
     | None ->
