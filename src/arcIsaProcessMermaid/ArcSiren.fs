@@ -70,7 +70,8 @@ module ArcSiren =
             
             for s in studies do
                 let sid = "STUDY_" + s.Identifier
-                let sLabel = "Study:" + ArcUtils.Arcpaths.generateStudyLinkFromRoot s.Identifier "."
+                //// let sLabel = "Study:" + ArcUtils.Arcpaths.generateStudyLinkFromRoot s.Identifier "."
+                let sLabel = "Study:" + s.Identifier
                 /// link studies to investigation
                 flowchart.linkArrow(investigation.Identifier, sid)
                 /// add study subgraphs
@@ -82,7 +83,8 @@ module ArcSiren =
             // add assay subgraphs
             for a in assays do
                 let aid = "ASSAY_" + a.Identifier
-                let aLabel = "Assay:" + ArcUtils.Arcpaths.generateAssayLinkFromRoot a.Identifier "."
+                //// let aLabel = "Assay:" + ArcUtils.Arcpaths.generateAssayLinkFromRoot a.Identifier "."
+                let aLabel = "Assay:" + a.Identifier
                 flowchart.subgraphNamed(aid, aLabel, [
                     for p in a do
                         flowchart.node(p.Name.Replace(" ", "-"), p.Name)            

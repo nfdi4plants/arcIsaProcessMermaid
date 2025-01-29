@@ -732,7 +732,7 @@
         }
       }
     },
-    "net8.0/win-x64": {
+    "net8.0/osx-x64": {
       "ARCtrl/2.1.0-alpha.4": {
         "type": "package",
         "dependencies": {
@@ -1361,7 +1361,7 @@
           }
         },
         "runtime": {
-          "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {}
+          "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {}
         }
       },
       "System.Text.Encodings.Web/7.0.0": {
@@ -2614,15 +2614,11 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+            "name": "Microsoft.AspNetCore.App.Runtime.osx-x64",
             "version": "[8.0.0, 8.0.0]"
           },
           {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.0, 8.0.0]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Runtime.win-x64",
+            "name": "Microsoft.NETCore.App.Runtime.osx-x64",
             "version": "[8.0.0, 8.0.0]"
           }
         ],
@@ -2635,7 +2631,7 @@
       }
     },
     "runtimes": {
-      "win-x64": {
+      "osx-x64": {
         "#import": []
       }
     }
@@ -2649,7 +2645,7 @@
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0",
-        "net8.0/win-x64"
+        "net8.0/osx-x64"
       ]
     },
     {
@@ -2660,7 +2656,7 @@
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0",
-        "net8.0/win-x64"
+        "net8.0/osx-x64"
       ]
     },
     {
@@ -2671,7 +2667,7 @@
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0",
-        "net8.0/win-x64"
+        "net8.0/osx-x64"
       ]
     },
     {
@@ -2682,7 +2678,7 @@
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0",
-        "net8.0/win-x64"
+        "net8.0/osx-x64"
       ]
     }
   ]

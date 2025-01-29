@@ -31,24 +31,24 @@ dotnet build src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
 ## Test
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid --help
 ```
 
 ### based on ARC scaffold
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p playground/example-arcs/arc-scaffold -o playground/ArcPrototype
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p tests/example-arcs/arc-scaffold/ -o pathToBeCreated/ArcPrototype
 ```
 
 ### based on RO-Crate
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p ./playground/example-arcs/arc-ro-crate-metadata.json -o playground/Facultative-CAM-in-Talinum
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p tests/example-arcs/arc-ro-crate-metadata.json -o Facultative-CAM-in-Talinum
 ```
 
 ## Compile executables
 
 ```bash
-dotnet publish --runtime osx-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
 dotnet publish --runtime win-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
+dotnet publish --runtime osx-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
 ```
