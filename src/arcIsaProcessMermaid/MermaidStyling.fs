@@ -1,33 +1,23 @@
 namespace ArcIsaProcessMermaid
 
-//////////////////////////////////////////////////
-////////// Add style to nodes
-/// TODO: needs to be more generalized and less hard-coded
-/// - allow more css
-/// - make css itmes optional
-
 module MermaidStyling = 
 
-    type mermaidClassDef =
+    type MermaidClassDef =
         { 
             className   : string
-            style       : mermaidStyle
+            style       : MermaidStyle
         }
 
-    and mermaidStyle =
+    and MermaidStyle =
         { 
             fill        : string
             color       : string
             fontWeight  : string
         }
 
-    let createMermaidclassDef (m : mermaidClassDef) : string =
-
+    let createMermaidclassDef (m : MermaidClassDef) : string =
         $"classDef {m.className} fill:{m.style.fill},color:{m.style.color},font-weight:{m.style.fontWeight};"
 
-
     let assignMermaidClass (className : string) (classStates : string seq) =
-        
         let concatStates = classStates |> String.concat(",")
-        
         $"class {concatStates} {className};"

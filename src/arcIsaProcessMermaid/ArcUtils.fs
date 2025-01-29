@@ -6,7 +6,6 @@ open ARCtrl
 module ArcUtils = 
 
     // Load ARC from an RO-Crate file
-
     module Arcload =
 
         let tryLoadARCfromROCrate (arcRocPath : string) = 
@@ -45,21 +44,13 @@ module ArcUtils =
             $"<a href='{url}'>{text}</a>"
 
         // Build link to a study directory
-        
         let generateStudyLinkFromRoot (studyID : string) (arcRoot: string) =
-            
             let relStudyPath = ArcPathHelper.getStudyFolderPath studyID
-
             let absStudyPath = System.IO.Path.Join(arcRoot, relStudyPath)
-                
             generateHtmlLink absStudyPath studyID
 
         // Build link to a assay directory
-
         let generateAssayLinkFromRoot (assayID : string) (arcRoot: string) =
-            
             let relAssayPath = ArcPathHelper.getAssayFolderPath assayID
-
             let absAssayPath = System.IO.Path.Join(arcRoot, relAssayPath)
-                
             generateHtmlLink absAssayPath assayID
