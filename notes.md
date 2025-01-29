@@ -1,7 +1,9 @@
 
 # arcIsaProcessMermaid
 
-## add solution
+## Project setup
+
+### add solution
 
 ```bash
 dotnet new sln --name arcIsaProcessMermaid
@@ -9,7 +11,7 @@ dotnet new console -lang "F#" -o src/arcIsaProcessMermaid
 dotnet sln add src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
 ```
 
-## add dependencies
+### add dependencies
 
 ```bash
 cd src/arcIsaProcessMermaid/
@@ -20,19 +22,31 @@ dotnet add package Siren
 cd ../../
 ```
 
-## build project
+## Build project
 
 ```bash
 dotnet build src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
 ```
 
-## start app
+## Test
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid --help
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid
 ```
 
-## publish executables
+### based on ARC scaffold
+
+```bash
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p playground/example-arcs/arc-scaffold -o playground/ArcPrototype
+```
+
+### based on RO-Crate
+
+```bash
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p ./playground/example-arcs/arc-ro-crate-metadata.json -o playground/Facultative-CAM-in-Talinum
+```
+
+## Compile executables
 
 ```bash
 dotnet publish --runtime osx-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
