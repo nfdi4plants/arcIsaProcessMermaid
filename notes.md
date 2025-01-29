@@ -37,7 +37,7 @@ src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid
 ### based on ARC scaffold
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p tests/example-arcs/arc-scaffold -o ArcPrototype
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p tests/example-arcs/arc-scaffold/ -o pathToBeCreated/ArcPrototype
 ```
 
 ### based on RO-Crate
@@ -49,6 +49,6 @@ src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p tests/example-
 ## Compile executables
 
 ```bash
-dotnet publish --runtime osx-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
 dotnet publish --runtime win-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
+dotnet publish --runtime osx-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
 ```

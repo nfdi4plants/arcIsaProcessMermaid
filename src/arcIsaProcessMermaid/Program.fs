@@ -57,13 +57,17 @@ let main(args) =
 
         match results.TryGetResult(CliArguments.Outpath) with
         | Some o -> 
+            
+            let op = System.IO.Path.GetDirectoryName(o)
+            System.IO.Directory.CreateDirectory(op) |> ignore
+
             ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
         | None -> 
-            printfn "Outpath missing; Defaulting to `<path/to/ARC/arc-mermaid>.md or .mmd`"
-
             let op = System.IO.Path.GetDirectoryName(i)
             let o = System.IO.Path.Join(op, "arc-mermaid")
+
+            printfn "%s" $"Outpath missing; Defaulting to {op}"
 
             ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
             1

@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("arcIsaProcessMermaid")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Release")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dba4d321b2d21021f96c780fa557bac35b4c94b")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10b9bd226f93d4330b80d14bd6a5b9a99c2dbfe9")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("arcIsaProcessMermaid")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("arcIsaProcessMermaid")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
