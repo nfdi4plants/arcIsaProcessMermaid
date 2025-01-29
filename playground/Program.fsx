@@ -86,7 +86,7 @@ let main(args) =
 
 
 let args = [| 
-            "--arcpath"; "playground/arc-ro-crate-metadata.json" ; 
+            "--arcpath"; "playground/example-arcs/arc-ro-crate-metadata.json" ; 
             "--outpath"; "playground/test.md";
             // "-mmd"; "false";
             |]

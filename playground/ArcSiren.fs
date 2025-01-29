@@ -13,7 +13,7 @@ let inv =
         className   = "inv"
         style       = {
             fill   = "#6c7885"
-            color   = "#6c7885"
+            color   = "#2d3e50"
             fontWeight  = "bold"
             }
     }
