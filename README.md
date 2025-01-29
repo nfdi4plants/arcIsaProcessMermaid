@@ -2,18 +2,30 @@
 
 Tool to generate a minimal markdown containing a mermaid graph that displays an ARC's connections of ISA processes from ARC investigation through studies and assays
 
-## Draw example mermaids
+Note: this tool is not meant as a long-term solution, but a quickfix and to illustrate what could readily and automatically be read from an ARC using the [ARCtrl](https://github.com/nfdi4plants/ARCtrl) library.
 
-### based on ARC scaffold
+## Installation
+
+Executables for macOS and Windows are available under [releases](https://github.com/nfdi4plants/arcIsaProcessMermaid/releases).
+
+1. Download and store the executable somewhere useful (e.g. program files)
+2. Add it to `$PATH` variable
+
+:bulb: On first use, one has to grant permissions (Windows Defender or macOS security warning)
+
+## Usage
+
+Open a command line or terminal and run `arcIsaProcessesSiren -p local/path/to/ARC`.
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p playground/example-arcs/arc-scaffold -o playground/ArcPrototype
-```
+USAGE: arcIsaProcessesSiren [--help] [--arcpath <path>] [--outpath <path>] [--outputmmd]
 
-### based on RO-Crate
+OPTIONS:
 
-```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p ./playground/example-arcs/arc-ro-crate-metadata.json -o playground/Facultative-CAM-in-Talinum
+    --arcpath, -p <path>  specify path to an ARC
+    --outpath, -o <path>  specify a file path and name to write results to (Default: `<path/to/ARC/arc-mermaid>.md or .mmd`)
+    --outputmmd, -mmd     whether to output a .mmd file instead of markdown
+    --help                display this list of options.
 ```
 
 ## Rationale
@@ -21,11 +33,20 @@ src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p ./playground/e
 Sure, mermaid graphs are not the tool of choice to display the overall complexity of ARCs.
 And they are far from anything dynamic or interactive.
 
-However, mermaids in markdown
+However, [mermaids](https://mermaid.js.org/) in markdown
 
 - are quick and can easily be adapted
 - are static and should not break too easily (especially with type-safe F# library [Siren](https://www.nuget.org/packages/Siren))
 - can readily be displayed in GitLab (i.e. [DataHUB](https://git.nfdi4plants.org)) or VSCode (with extensions)
+
+## Recommended mermaid VS Code extensions
+
+To display the resulting mermaid graph, preview the file in VS Code with extensions installed:
+
+- [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
+- [Mermaid Editor](https://marketplace.visualstudio.com/items?itemName=tomoyukim.vscode-mermaid-editor)
+
+Alternatively, copy/paste it to [Mermaid Live Editor](http://mermaid.live). 
 
 ## Idea
 
