@@ -41,8 +41,12 @@ However, [mermaids](https://mermaid.js.org/) in markdown
 
 ## Recommended mermaid VS Code extensions
 
+To display the resulting mermaid graph, preview the file in VS Code with extensions installed:
+
 - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
 - [Mermaid Editor](https://marketplace.visualstudio.com/items?itemName=tomoyukim.vscode-mermaid-editor)
+
+Alternatively, copy/paste it to [Mermaid Live Editor](http://mermaid.live). 
 
 ## Idea
 
