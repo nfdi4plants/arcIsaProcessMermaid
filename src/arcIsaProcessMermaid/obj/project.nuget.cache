@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Nf3T/7wsmOi0P8/jwc1YpVGBdAnGgl3WGeUQTQ3TeDDwUBy0+NrHed9A398gfPl6YbgjsbZMkphnsX3UCXPGNQ==",
+  "dgSpecHash": "457uebz72+hW550KWlfBHLlT2grUVwHqwEu6169fHut5aq4T5NMMtw/jQZP36S7lguRJ5sncgNcIEUizDQIk3w==",
   "success": true,
   "projectFilePath": "/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
   "expectedPackageFiles": [
@@ -44,7 +44,10 @@
     "/Users/dominikbrilhaus/.nuget/packages/system.text.json/7.0.2/system.text.json.7.0.2.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/thoth.json.core/0.4.0/thoth.json.core.0.4.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/thoth.json.newtonsoft/0.2.0/thoth.json.newtonsoft.0.2.0.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/yamlicious/0.0.1/yamlicious.0.0.1.nupkg.sha512"
+    "/Users/dominikbrilhaus/.nuget/packages/yamlicious/0.0.1/yamlicious.0.0.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/microsoft.netcore.app.runtime.win-x64/8.0.0/microsoft.netcore.app.runtime.win-x64.8.0.0.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/8.0.0/microsoft.aspnetcore.app.runtime.win-x64.8.0.0.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/microsoft.netcore.app.host.win-x64/8.0.0/microsoft.netcore.app.host.win-x64.8.0.0.nupkg.sha512"
   ],
   "logs": [
     {
@@ -54,7 +57,8 @@
       "message": "Detected package downgrade: FSharp.Core from 8.0.400 to 8.0.100. Reference the package directly from the project to select a different version. \n arcIsaProcessMermaid -> ARCtrl.NET 2.0.2 -> FSharp.Core (>= 8.0.400) \n arcIsaProcessMermaid -> FSharp.Core (>= 8.0.100)",
       "libraryId": "FSharp.Core",
       "targetGraphs": [
-        "net8.0"
+        "net8.0",
+        "net8.0/win-x64"
       ]
     },
     {
@@ -64,7 +68,8 @@
       "message": "Detected package downgrade: FSharp.Core from 8.0.200 to 8.0.100. Reference the package directly from the project to select a different version. \n arcIsaProcessMermaid -> Siren 0.3.2 -> FSharp.Core (>= 8.0.200) \n arcIsaProcessMermaid -> FSharp.Core (>= 8.0.100)",
       "libraryId": "FSharp.Core",
       "targetGraphs": [
-        "net8.0"
+        "net8.0",
+        "net8.0/win-x64"
       ]
     },
     {
@@ -74,7 +79,8 @@
       "message": "Detected package downgrade: FSharp.Core from 8.0.400 to 8.0.100. Reference the package directly from the project to select a different version. \n arcIsaProcessMermaid -> ARCtrl.QueryModel 2.0.2 -> ARCtrl 2.1.0-alpha.4 -> ARCtrl.ROCrate 2.1.0-alpha.4 -> DynamicObj 4.0.0 -> FSharp.Core (>= 8.0.400) \n arcIsaProcessMermaid -> FSharp.Core (>= 8.0.100)",
       "libraryId": "FSharp.Core",
       "targetGraphs": [
-        "net8.0"
+        "net8.0",
+        "net8.0/win-x64"
       ]
     },
     {
@@ -84,7 +90,8 @@
       "message": "Detected package downgrade: FSharp.Core from 8.0.300 to 8.0.100. Reference the package directly from the project to select a different version. \n arcIsaProcessMermaid -> ARCtrl.QueryModel 2.0.2 -> ARCtrl 2.1.0-alpha.4 -> ARCtrl.Contract 2.1.0-alpha.4 -> ARCtrl.Yaml 2.1.0-alpha.4 -> YAMLicious 0.0.1 -> FSharp.Core (>= 8.0.300) \n arcIsaProcessMermaid -> FSharp.Core (>= 8.0.100)",
       "libraryId": "FSharp.Core",
       "targetGraphs": [
-        "net8.0"
+        "net8.0",
+        "net8.0/win-x64"
       ]
     }
   ]
