@@ -31,7 +31,7 @@ dotnet build src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
 ## Test
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid --help
 ```
 
 ### based on ARC scaffold

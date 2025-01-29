@@ -2,7 +2,7 @@
 
 Tool to generate a minimal markdown containing a mermaid graph that displays an ARC's connections of ISA processes from ARC investigation through studies and assays
 
-Note: this tool is not meant as a long-term solution, but a quickfix and to illustrate what could readily and automatically be read from an ARC using the [ARCtrl](https://github.com/nfdi4plants/ARCtrl) library.
+:bulb: This tool is not meant as a long-term solution, but a quickfix and to illustrate what could readily and automatically be read from an ARC using the [ARCtrl](https://github.com/nfdi4plants/ARCtrl) library.
 
 ## Installation
 
