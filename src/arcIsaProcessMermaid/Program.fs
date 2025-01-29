@@ -30,8 +30,7 @@ type CliArguments =
             | OutputMMD -> "whether to output a .mmd file instead of markdown"
             // | FlowDirection _ -> "(Default: `topDown`)"
 
-
-// [<EntryPoint>]
+[<EntryPoint>]
 let main(args) =
     let errorHandler = ProcessExiter(colorizer = function ErrorCode.HelpText -> None | _ -> Some ConsoleColor.Red)
 
@@ -46,7 +45,7 @@ let main(args) =
     let mmd = results.Contains OutputMMD
 
     // TODO: allow selection of flow direction via argument
-    let flowD  =  direction.topDown
+    let flowD  =  Direction.TopDown
         // match results.TryGetResult(CliArguments.FlowDirection) with
         //     | Some o -> 
         //         o
@@ -60,12 +59,12 @@ let main(args) =
 
         match results.TryGetResult(CliArguments.Outpath) with
         | Some o -> 
-            arcIsaProcesses2mermaid flowD arc.Value o mmd
+            ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
         | None -> 
             printfn "Outpath missing; Defaulting to `./arc-mermaid.md`"
             let o = "arc-mermaid.md"
-            arcIsaProcesses2mermaid flowD arc.Value o mmd
+            ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
     | None ->
         printfn "Arcpath missing"
