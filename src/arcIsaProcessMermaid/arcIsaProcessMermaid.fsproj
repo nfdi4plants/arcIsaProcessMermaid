@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="ArcProcesses.fs" />
+    <Compile Include="ArcSiren.fs" />
+    <Compile Include="ArcUtils.fs" />
+    <Compile Include="MermaidStyling.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
@@ -14,6 +18,7 @@
     <PackageReference Include="ARCtrl.QueryModel" Version="2.0.2" />
     <PackageReference Include="Argu" Version="6.2.4" />
     <PackageReference Include="Siren" Version="0.3.2" />
+    <PackageReference Include="FSharp.Core" Version="8.0.400" />
   </ItemGroup>
 
 </Project>
