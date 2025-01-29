@@ -26,7 +26,7 @@ open ArcSiren
 ////////// Handle CLI arguments
 
 type CliArguments =
-    | [<AltCommandLine("-a")>][<Unique>] Arcpath of path:string
+    | [<AltCommandLine("-p")>][<Unique>] Arcpath of path:string
     | [<AltCommandLine("-o")>][<Unique>] Outpath of path:string
     | [<AltCommandLine("-mmd")>][<Unique>] OutputMMD
     // | [<AltCommandLine("-fd")>][<Unique>] FlowDirection of string

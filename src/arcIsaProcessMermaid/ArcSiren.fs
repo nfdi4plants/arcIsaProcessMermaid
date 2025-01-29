@@ -69,7 +69,7 @@ module ArcSiren =
             /// otherwise this breaks with mermaid
             
             for s in studies do
-                let sid = "Study:" + s.Identifier
+                let sid = "STUDY_" + s.Identifier
                 let sLabel = "Study:" + ArcUtils.Arcpaths.generateStudyLinkFromRoot s.Identifier "."
                 /// link studies to investigation
                 flowchart.linkArrow(investigation.Identifier, sid)
@@ -81,7 +81,7 @@ module ArcSiren =
 
             // add assay subgraphs
             for a in assays do
-                let aid = "Assay:" + a.Identifier
+                let aid = "ASSAY_" + a.Identifier
                 let aLabel = "Assay:" + ArcUtils.Arcpaths.generateAssayLinkFromRoot a.Identifier "."
                 flowchart.subgraphNamed(aid, aLabel, [
                     for p in a do
@@ -113,14 +113,14 @@ module ArcSiren =
 
             let collectStudyIDs = 
                 studies
-                |> Seq.map (fun s -> "Study:" + s.Identifier)
+                |> Seq.map (fun s -> "STUDY_" + s.Identifier)
 
             collectStudyIDs
             |> MermaidStyling.assignMermaidClass "study"
             
             let collectAssayIDs = 
                 assays
-                |> Seq.map (fun a -> "Assay:" + a.Identifier)
+                |> Seq.map (fun a -> "ASSAY_" + a.Identifier)
 
             collectAssayIDs
             |> MermaidStyling.assignMermaidClass "assay"
