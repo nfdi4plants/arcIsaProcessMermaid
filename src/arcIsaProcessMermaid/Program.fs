@@ -45,7 +45,7 @@ let main(args) =
     let mmd = results.Contains OutputMMD
 
     // TODO: allow selection of flow direction via argument
-    let flowD  =  Direction.TopDown
+    let flowD  =  Direction.TD
         // match results.TryGetResult(CliArguments.FlowDirection) with
         //     | Some o -> 
         //         o

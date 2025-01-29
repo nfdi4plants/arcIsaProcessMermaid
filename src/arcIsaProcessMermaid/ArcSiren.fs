@@ -60,9 +60,9 @@ module ArcSiren =
         let assays = investigation.Assays
         let processes = investigation.ArcTables
 
-        Siren.flowchart(flowDirection, [
+        siren.flowchart(flowDirection, [
             // add investigation start-node
-            Siren.flowchart.node(investigation.Identifier) // probably obsolete, since the node is added by linking inv -> s below
+            flowchart.node(investigation.Identifier) // probably obsolete, since the node is added by linking inv -> s below
             
             /// adding "study:" and "assay: to the subgraph names to allow that study / 
             /// assay identifier and one of their process names are identical
@@ -71,21 +71,21 @@ module ArcSiren =
             for s in studies do
                 let sid = "Study:" + s.Identifier
                 let sLabel = "Study:" + ArcUtils.Arcpaths.generateStudyLinkFromRoot s.Identifier "."
-                // link studies to investigation
-                Siren.flowchart.linkArrow(investigation.Identifier, sid)
-                // add study subgraphs
-                Siren.flowchart.subgraphNamed(sid, sLabel, [
+                /// link studies to investigation
+                flowchart.linkArrow(investigation.Identifier, sid)
+                /// add study subgraphs
+                flowchart.subgraphNamed(sid, sLabel, [
                     for p in s do
-                        Siren.flowchart.node(p.Name.Replace(" ", "-"), p.Name)
+                        flowchart.node(p.Name.Replace(" ", "-"), p.Name)
                 ])
 
             // add assay subgraphs
             for a in assays do
                 let aid = "Assay:" + a.Identifier
                 let aLabel = "Assay:" + ArcUtils.Arcpaths.generateAssayLinkFromRoot a.Identifier "."
-                Siren.flowchart.subgraphNamed(aid, aLabel, [
+                flowchart.subgraphNamed(aid, aLabel, [
                     for p in a do
-                        Siren.flowchart.node(p.Name.Replace(" ", "-"), p.Name)            
+                        flowchart.node(p.Name.Replace(" ", "-"), p.Name)            
                 ])
 
             // add process-to-process edges, with sample numbers as edge name
@@ -93,9 +93,9 @@ module ArcSiren =
                 for p2 in processes do
                     if ArcProcesses.isPreviousProcessOf p1 p2 then
                         let nSamples = ArcProcesses.numSamplesFromPreviousProcess p1 p2
-                        Siren.flowchart.linkArrow(p1.Name.Replace(" ", "-"), p2.Name.Replace(" ", "-"), nSamples.ToString())
+                        flowchart.linkArrow(p1.Name.Replace(" ", "-"), p2.Name.Replace(" ", "-"), nSamples.ToString())
         ])
-        |> Siren.write
+        |> siren.write
 
     let createIsaMermaidStyle (arc : ARC) =
         let investigation = arc.ISA.Value
