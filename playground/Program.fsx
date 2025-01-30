@@ -1,4 +1,13 @@
-module ArcIsaProcessMermaid.Program
+
+#r "nuget: ARCtrl"
+#r "nuget: ARCtrl.QueryModel"
+#r "nuget: Siren"
+#r "nuget: Argu"
+
+#load "../src/arcIsaProcessMermaid/ArcUtils.fs"
+#load "../src/arcIsaProcessMermaid/ArcProcesses.fs"
+#load "../src/arcIsaProcessMermaid/MermaidStyling.fs"
+#load "../src/arcIsaProcessMermaid/ArcSiren.fs"
 
 open ARCtrl
 open ARCtrl.QueryModel
@@ -6,11 +15,12 @@ open Siren
 open Argu
 open System
 
-open ArcUtils.Arcload
-open ArcUtils.Arcpaths
-open ArcProcesses
-open MermaidStyling
-open ArcSiren
+open ArcIsaProcessMermaid.ArcUtils.Arcload
+open ArcIsaProcessMermaid.ArcUtils.Arcpaths
+open ArcIsaProcessMermaid.ArcProcesses
+open ArcIsaProcessMermaid.MermaidStyling
+open ArcIsaProcessMermaid.ArcSiren
+
 
 //////////////////////////////////////////////////
 ////////// Handle CLI arguments
@@ -29,7 +39,7 @@ type CliArguments =
             | OutputMMD -> "whether to output a .mmd file instead of markdown"
             // | FlowDirection _ -> "(Default: `topDown`)"
 
-[<EntryPoint>]
+// [<EntryPoint>]
 let main(args) =
     let errorHandler = ProcessExiter(colorizer = function ErrorCode.HelpText -> None | _ -> Some ConsoleColor.Red)
 
@@ -63,20 +73,31 @@ let main(args) =
             
             System.IO.Directory.CreateDirectory(op) |> ignore
 
-            ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
+            arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
         | None -> 
 
             let op = System.IO.FileInfo(i).Directory.FullName            
             let o = System.IO.Path.Join(op, "arc-mermaid")
 
-            printfn "%s" $"INFO: Outpath missing; Defaulting to {o}"
+            printfn "%s" $"Outpath missing; Defaulting to {o}"
 
-            ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
+            arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
     | None ->
-        printfn "%s" "---------------"
-        printfn "%s" "ERROR: No Arcpath provided"
-        printfn "%s" "---------------"
-        printfn "%s" usage
+        printfn "Arcpath missing"
         0
+
+
+////////////////////////
+/// Test
+
+
+let args = [| 
+        "--arcpath"; "tests/example-arcs/arc-ro-crate-metadata.json"; 
+        "--outpath"; "playground/test.md";
+        // "-mmd"; "false";
+        |]
+
+main args
+

@@ -5,7 +5,7 @@
   },
   "projects": {
     "/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj": {
-      "version": "1.0.1-alpha",
+      "version": "1.0.2",
       "restore": {
         "projectUniqueName": "/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
         "projectName": "arcIsaProcessMermaid",
@@ -34,14 +34,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "ARCtrl.NET": {
-              "target": "Package",
-              "version": "[2.0.2, )",
-              "generatePathProperty": true
-            },
             "ARCtrl.QueryModel": {
               "target": "Package",
-              "version": "[2.0.2, )",
+              "version": "[2.1.0, )",
               "generatePathProperty": true
             },
             "Argu": {

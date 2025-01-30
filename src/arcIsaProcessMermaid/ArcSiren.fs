@@ -10,9 +10,12 @@ open MermaidStyling
 
 module ArcSiren = 
 
-    let inv = 
+    let replaceChars (chars) = String.map (fun c -> if Seq.exists((=)c) chars then '_' else c)    
+    let mermaidBreakingChars = "°^!§$%&/\|()=?`´*+~#;:,.<>' "
+
+    let investigationStyle = 
         {
-            className   = "inv"
+            className   = "investigationStyle"
             style       = {
                 fill   = "#6c7885"
                 color   = "#2d3e50"
@@ -20,18 +23,18 @@ module ArcSiren =
                 }
         }
         
-    let std = 
+    let studyStyle = 
         {
-            className   = "study"
+            className   = "studyStyle"
             style       = {
                 fill   = "#62d4c1"
                 color   = "#2d3e50"
                 fontWeight  = "bold"
                 }
         }    
-    let asy = 
+    let assayStyle = 
         {
-            className   = "assay"
+            className   = "assayStyle"
             style       = {
                 fill   = "#ffd34d"
                 color   = "#2d3e50"
@@ -39,9 +42,9 @@ module ArcSiren =
                 }
         }
         
-    let prc = 
+    let processStyle = 
         {
-            className   = "process"
+            className   = "processStyle"
             style       = {
                 fill   = "#D46275"
                 color   = "#2d3e50"
@@ -50,7 +53,7 @@ module ArcSiren =
         }
 
     let classDefCollection = 
-        [inv; std; asy; prc]
+        [investigationStyle; studyStyle; assayStyle; processStyle]
         |> List.map (fun i -> MermaidStyling.createMermaidclassDef i)
         |> String.concat "\n"
 
@@ -69,7 +72,7 @@ module ArcSiren =
             /// otherwise this breaks with mermaid
             
             for s in studies do
-                let sid = "STUDY_" + s.Identifier
+                let sid = "STUDY_" + s.Identifier |> replaceChars mermaidBreakingChars
                 //// let sLabel = "Study:" + ArcUtils.Arcpaths.generateStudyLinkFromRoot s.Identifier "."
                 let sLabel = "Study:" + s.Identifier
                 /// link studies to investigation
@@ -77,17 +80,17 @@ module ArcSiren =
                 /// add study subgraphs
                 flowchart.subgraphNamed(sid, sLabel, [
                     for p in s do
-                        flowchart.node(p.Name.Replace(" ", "-"), p.Name)
+                        flowchart.node(p.Name |> replaceChars mermaidBreakingChars, p.Name)
                 ])
 
             // add assay subgraphs
             for a in assays do
-                let aid = "ASSAY_" + a.Identifier
+                let aid = "ASSAY_" + a.Identifier |> replaceChars mermaidBreakingChars
                 //// let aLabel = "Assay:" + ArcUtils.Arcpaths.generateAssayLinkFromRoot a.Identifier "."
                 let aLabel = "Assay:" + a.Identifier
                 flowchart.subgraphNamed(aid, aLabel, [
                     for p in a do
-                        flowchart.node(p.Name.Replace(" ", "-"), p.Name)            
+                        flowchart.node(p.Name |> replaceChars mermaidBreakingChars, p.Name)            
                 ])
 
             // add process-to-process edges, with sample numbers as edge name
@@ -95,7 +98,11 @@ module ArcSiren =
                 for p2 in processes do
                     if ArcProcesses.isPreviousProcessOf p1 p2 then
                         let nSamples = ArcProcesses.numSamplesFromPreviousProcess p1 p2
-                        flowchart.linkArrow(p1.Name.Replace(" ", "-"), p2.Name.Replace(" ", "-"), nSamples.ToString())
+                        flowchart.linkArrow(
+                                p1.Name |> replaceChars mermaidBreakingChars, 
+                                p2.Name |> replaceChars mermaidBreakingChars, 
+                                nSamples.ToString()
+                                )
         ])
         |> siren.write
 
@@ -106,33 +113,49 @@ module ArcSiren =
         let processes = investigation.ArcTables
 
         [
-            [inv; std; asy; prc]
+            [investigationStyle; studyStyle; assayStyle; processStyle]
             |> List.map (fun i -> MermaidStyling.createMermaidclassDef i)
             |> String.concat "\n"
             
             [investigation.Identifier]
-            |> MermaidStyling.assignMermaidClass "inv"
+            |> MermaidStyling.assignMermaidClass "investigationStyle"
 
             let collectStudyIDs = 
                 studies
-                |> Seq.map (fun s -> "STUDY_" + s.Identifier)
+                |> Seq.map (fun s -> "STUDY_" + s.Identifier |> replaceChars mermaidBreakingChars)
 
-            collectStudyIDs
-            |> MermaidStyling.assignMermaidClass "study"
+            match collectStudyIDs |> Seq.length < 1 with
+            | true  -> 
+                printfn "%s" "no study found"
+                ""
+            | false -> 
+                collectStudyIDs
+                |> MermaidStyling.assignMermaidClass "study"
             
             let collectAssayIDs = 
                 assays
-                |> Seq.map (fun a -> "ASSAY_" + a.Identifier)
+                |> Seq.map (fun a -> "ASSAY_" + a.Identifier |> replaceChars mermaidBreakingChars)
 
-            collectAssayIDs
-            |> MermaidStyling.assignMermaidClass "assay"
-            
+            match collectAssayIDs |> Seq.length < 1 with
+            | true  -> 
+                printfn "%s" "no assay found"
+                ""
+            | false -> 
+                collectAssayIDs
+                |> MermaidStyling.assignMermaidClass "assay"
+        
             let collectProcessIDs = 
                 processes
-                |> Seq.map (fun p -> p.Name.Replace(" ", "-"))
+                |> Seq.map (fun p -> p.Name |> replaceChars mermaidBreakingChars)
 
-            collectProcessIDs
-            |> MermaidStyling.assignMermaidClass "process"
+            match collectProcessIDs |> Seq.length < 1 with
+            | true  -> 
+                printfn "%s" "no process found"
+                ""
+            | false -> 
+                collectProcessIDs
+                |> MermaidStyling.assignMermaidClass "process"
+
         ]
         |> String.concat("\n")
 

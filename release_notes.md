@@ -16,7 +16,7 @@ dotnet sln add src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
 ```bash
 cd src/arcIsaProcessMermaid/
 dotnet add package Argu
-dotnet add package ARCtrl.NET
+dotnet add package ARCtrl
 dotnet add package ARCtrl.QueryModel
 dotnet add package Siren
 cd ../../
@@ -31,7 +31,7 @@ dotnet build src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
 ## Test
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid --help
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid
 ```
 
 ### based on ARC scaffold
@@ -97,7 +97,7 @@ dotnet run --help
 
 ```bash
 nuget setApiKey <>
-nuget push src/arcIsaProcessMermaid/bin/Release/arcIsaProcessMermaid.1.0.1-alpha.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/arcIsaProcessMermaid/bin/Release/arcIsaProcessMermaid.1.0.2.nupkg -Source https://api.nuget.org/v3/index.json
 ```
 
 
