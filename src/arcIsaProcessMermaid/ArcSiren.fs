@@ -13,9 +13,9 @@ module ArcSiren =
     let replaceChars (chars) = String.map (fun c -> if Seq.exists((=)c) chars then '_' else c)    
     let mermaidBreakingChars = "°^!§$%&/\|()=?`´*+~#;:,.<>' "
 
-    let inv = 
+    let investigationStyle = 
         {
-            className   = "inv"
+            className   = "investigationStyle"
             style       = {
                 fill   = "#6c7885"
                 color   = "#2d3e50"
@@ -23,18 +23,18 @@ module ArcSiren =
                 }
         }
         
-    let std = 
+    let studyStyle = 
         {
-            className   = "study"
+            className   = "studyStyle"
             style       = {
                 fill   = "#62d4c1"
                 color   = "#2d3e50"
                 fontWeight  = "bold"
                 }
         }    
-    let asy = 
+    let assayStyle = 
         {
-            className   = "assay"
+            className   = "assayStyle"
             style       = {
                 fill   = "#ffd34d"
                 color   = "#2d3e50"
@@ -42,9 +42,9 @@ module ArcSiren =
                 }
         }
         
-    let prc = 
+    let processStyle = 
         {
-            className   = "process"
+            className   = "processStyle"
             style       = {
                 fill   = "#D46275"
                 color   = "#2d3e50"
@@ -53,7 +53,7 @@ module ArcSiren =
         }
 
     let classDefCollection = 
-        [inv; std; asy; prc]
+        [investigationStyle; studyStyle; assayStyle; processStyle]
         |> List.map (fun i -> MermaidStyling.createMermaidclassDef i)
         |> String.concat "\n"
 
@@ -113,12 +113,12 @@ module ArcSiren =
         let processes = investigation.ArcTables
 
         [
-            [inv; std; asy; prc]
+            [investigationStyle; studyStyle; assayStyle; processStyle]
             |> List.map (fun i -> MermaidStyling.createMermaidclassDef i)
             |> String.concat "\n"
             
             [investigation.Identifier]
-            |> MermaidStyling.assignMermaidClass "inv"
+            |> MermaidStyling.assignMermaidClass "investigationStyle"
 
             let collectStudyIDs = 
                 studies
