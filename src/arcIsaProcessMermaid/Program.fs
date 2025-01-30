@@ -1,6 +1,5 @@
 module ArcIsaProcessMermaid.Program
 
-open ARCtrl.NET
 open ARCtrl
 open ARCtrl.QueryModel
 open Siren

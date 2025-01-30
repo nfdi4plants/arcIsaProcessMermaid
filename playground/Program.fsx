@@ -1,6 +1,5 @@
 
 #r "nuget: ARCtrl"
-#r "nuget: ARCtrl.NET"
 #r "nuget: ARCtrl.QueryModel"
 #r "nuget: Siren"
 #r "nuget: Argu"
@@ -10,7 +9,6 @@
 #load "../src/arcIsaProcessMermaid/MermaidStyling.fs"
 #load "../src/arcIsaProcessMermaid/ArcSiren.fs"
 
-open ARCtrl.NET
 open ARCtrl
 open ARCtrl.QueryModel
 open Siren

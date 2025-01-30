@@ -1,24 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "v4dzcuXp1S0k+2T8wU4G+cQwFvzgGQBMsYd/I9nwPpDY5ka5+f+rI9WFiVO5xEKJRyIMzc/Q9NL4K/O4NNClXg==",
+  "dgSpecHash": "pfQKLutulDhB5j8er7pg6eHBNzKGhJ6uSqg30ZGRt7raeFmdnRu0TbO18kNV6aFGNhMAG77nsreGnTfnQHTVSA==",
   "success": true,
   "projectFilePath": "/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
   "expectedPackageFiles": [
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl/2.1.0-alpha.4/arctrl.2.1.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.contract/2.1.0-alpha.4/arctrl.contract.2.1.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.core/2.1.0-alpha.4/arctrl.core.2.1.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.cwl/2.1.0-alpha.4/arctrl.cwl.2.1.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.filesystem/2.1.0-alpha.4/arctrl.filesystem.2.1.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.json/2.1.0-alpha.4/arctrl.json.2.1.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.net/2.0.2/arctrl.net.2.0.2.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.querymodel/2.0.2/arctrl.querymodel.2.0.2.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.rocrate/2.1.0-alpha.4/arctrl.rocrate.2.1.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.spreadsheet/2.1.0-alpha.4/arctrl.spreadsheet.2.1.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.validationpackages/2.1.0-alpha.4/arctrl.validationpackages.2.1.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/arctrl.yaml/2.1.0-alpha.4/arctrl.yaml.2.1.0-alpha.4.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl/2.3.1/arctrl.2.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.contract/2.3.1/arctrl.contract.2.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.core/2.3.1/arctrl.core.2.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.cwl/2.3.1/arctrl.cwl.2.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.filesystem/2.3.1/arctrl.filesystem.2.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.json/2.3.1/arctrl.json.2.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.querymodel/2.1.0/arctrl.querymodel.2.1.0.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.rocrate/2.3.1/arctrl.rocrate.2.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.spreadsheet/2.3.1/arctrl.spreadsheet.2.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.validationpackages/2.3.1/arctrl.validationpackages.2.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/arctrl.yaml/2.3.1/arctrl.yaml.2.3.1.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/argu/6.2.4/argu.6.2.4.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/documentformat.openxml/2.16.0/documentformat.openxml.2.16.0.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/dynamicobj/4.0.0/dynamicobj.4.0.0.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/dynamicobj/4.0.3/dynamicobj.4.0.3.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/fable.browser.blob/1.1.0/fable.browser.blob.1.1.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/fable.browser.dom/1.0.0/fable.browser.dom.1.0.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/fable.browser.event/1.0.0/fable.browser.event.1.0.0.nupkg.sha512",
@@ -29,29 +28,24 @@
     "/Users/dominikbrilhaus/.nuget/packages/fable.simplehttp/3.5.0/fable.simplehttp.3.5.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/fsharp.core/8.0.100/fsharp.core.8.0.100.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/fshttp/9.1.2/fshttp.9.1.2.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/fsspreadsheet/6.3.0-alpha.4/fsspreadsheet.6.3.0-alpha.4.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/fsspreadsheet.net/6.2.0/fsspreadsheet.net.6.2.0.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/jsondsl/0.0.5/jsondsl.0.0.5.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/litxml/0.1.0/litxml.0.1.0.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/fsspreadsheet/6.3.1/fsspreadsheet.6.3.1.nupkg.sha512",
+    "/Users/dominikbrilhaus/.nuget/packages/fsspreadsheet.net/6.3.1/fsspreadsheet.net.6.3.1.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/nlog/5.1.2/nlog.5.1.2.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/siren/0.3.2/siren.0.3.2.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/swate.api/0.2.0/swate.api.0.2.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/system.configuration.configurationmanager/4.4.0/system.configuration.configurationmanager.4.4.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/system.io.packaging/4.7.0/system.io.packaging.4.7.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/system.security.cryptography.protecteddata/4.4.0/system.security.cryptography.protecteddata.4.4.0.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/system.text.json/7.0.2/system.text.json.7.0.2.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/thoth.json.core/0.4.0/thoth.json.core.0.4.0.nupkg.sha512",
     "/Users/dominikbrilhaus/.nuget/packages/thoth.json.newtonsoft/0.2.0/thoth.json.newtonsoft.0.2.0.nupkg.sha512",
-    "/Users/dominikbrilhaus/.nuget/packages/yamlicious/0.0.1/yamlicious.0.0.1.nupkg.sha512"
+    "/Users/dominikbrilhaus/.nuget/packages/yamlicious/0.0.3/yamlicious.0.0.3.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1605",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package downgrade: FSharp.Core from 8.0.400 to 8.0.100. Reference the package directly from the project to select a different version. \n arcIsaProcessMermaid -> ARCtrl.NET 2.0.2 -> FSharp.Core (>= 8.0.400) \n arcIsaProcessMermaid -> FSharp.Core (>= 8.0.100)",
+      "message": "Detected package downgrade: FSharp.Core from 8.0.301 to 8.0.100. Reference the package directly from the project to select a different version. \n arcIsaProcessMermaid -> ARCtrl.QueryModel 2.1.0 -> FSharp.Core (>= 8.0.301) \n arcIsaProcessMermaid -> FSharp.Core (>= 8.0.100)",
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0"
@@ -62,26 +56,6 @@
       "level": "Warning",
       "warningLevel": 1,
       "message": "Detected package downgrade: FSharp.Core from 8.0.200 to 8.0.100. Reference the package directly from the project to select a different version. \n arcIsaProcessMermaid -> Siren 0.3.2 -> FSharp.Core (>= 8.0.200) \n arcIsaProcessMermaid -> FSharp.Core (>= 8.0.100)",
-      "libraryId": "FSharp.Core",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: FSharp.Core from 8.0.400 to 8.0.100. Reference the package directly from the project to select a different version. \n arcIsaProcessMermaid -> ARCtrl.QueryModel 2.0.2 -> ARCtrl 2.1.0-alpha.4 -> ARCtrl.ROCrate 2.1.0-alpha.4 -> DynamicObj 4.0.0 -> FSharp.Core (>= 8.0.400) \n arcIsaProcessMermaid -> FSharp.Core (>= 8.0.100)",
-      "libraryId": "FSharp.Core",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: FSharp.Core from 8.0.300 to 8.0.100. Reference the package directly from the project to select a different version. \n arcIsaProcessMermaid -> ARCtrl.QueryModel 2.0.2 -> ARCtrl 2.1.0-alpha.4 -> ARCtrl.Contract 2.1.0-alpha.4 -> ARCtrl.Yaml 2.1.0-alpha.4 -> YAMLicious 0.0.1 -> FSharp.Core (>= 8.0.300) \n arcIsaProcessMermaid -> FSharp.Core (>= 8.0.100)",
       "libraryId": "FSharp.Core",
       "targetGraphs": [
         "net8.0"

@@ -1,6 +1,5 @@
 namespace ArcIsaProcessMermaid
 
-open ARCtrl.NET
 open ARCtrl
 
 module ArcUtils = 

@@ -16,7 +16,7 @@ dotnet sln add src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
 ```bash
 cd src/arcIsaProcessMermaid/
 dotnet add package Argu
-dotnet add package ARCtrl.NET
+dotnet add package ARCtrl
 dotnet add package ARCtrl.QueryModel
 dotnet add package Siren
 cd ../../

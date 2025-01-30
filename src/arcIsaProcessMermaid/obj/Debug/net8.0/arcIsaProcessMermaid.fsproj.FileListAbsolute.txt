@@ -153,7 +153,6 @@
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/ARCtrl.CWL.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/ARCtrl.FileSystem.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/ARCtrl.Json.dll
-/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/ARCtrl.NET.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/ARCtrl.QueryModel.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/ARCtrl.ROCrate.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/ARCtrl.Spreadsheet.dll
@@ -173,10 +172,7 @@
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/FsHttp.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/FsSpreadsheet.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/FsSpreadsheet.Net.dll
-/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/JsonDSL.dll
-/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/LitXml.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/Newtonsoft.Json.dll
-/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/NLog.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/Siren.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/Swate.Api.dll
 /Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll

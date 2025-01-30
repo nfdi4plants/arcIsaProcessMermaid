@@ -16,7 +16,6 @@
     <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">/Users/dominikbrilhaus/.nuget/packages/fsharp.core/8.0.100</PkgFSharp_Core>
     <PkgSiren Condition=" '$(PkgSiren)' == '' ">/Users/dominikbrilhaus/.nuget/packages/siren/0.3.2</PkgSiren>
     <PkgArgu Condition=" '$(PkgArgu)' == '' ">/Users/dominikbrilhaus/.nuget/packages/argu/6.2.4</PkgArgu>
-    <PkgARCtrl_QueryModel Condition=" '$(PkgARCtrl_QueryModel)' == '' ">/Users/dominikbrilhaus/.nuget/packages/arctrl.querymodel/2.0.2</PkgARCtrl_QueryModel>
-    <PkgARCtrl_NET Condition=" '$(PkgARCtrl_NET)' == '' ">/Users/dominikbrilhaus/.nuget/packages/arctrl.net/2.0.2</PkgARCtrl_NET>
+    <PkgARCtrl_QueryModel Condition=" '$(PkgARCtrl_QueryModel)' == '' ">/Users/dominikbrilhaus/.nuget/packages/arctrl.querymodel/2.1.0</PkgARCtrl_QueryModel>
   </PropertyGroup>
 </Project>
