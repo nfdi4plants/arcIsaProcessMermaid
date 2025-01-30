@@ -130,7 +130,7 @@ module ArcSiren =
                 ""
             | false -> 
                 collectStudyIDs
-                |> MermaidStyling.assignMermaidClass "assay"
+                |> MermaidStyling.assignMermaidClass "study"
             
             let collectAssayIDs = 
                 assays
