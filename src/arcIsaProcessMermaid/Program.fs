@@ -70,10 +70,13 @@ let main(args) =
             let op = System.IO.FileInfo(i).Directory.FullName            
             let o = System.IO.Path.Join(op, "arc-mermaid")
 
-            printfn "%s" $"Outpath missing; Defaulting to {o}"
+            printfn "%s" $"INFO: Outpath missing; Defaulting to {o}"
 
             ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
     | None ->
-        printfn "Arcpath missing"
+        printfn "%s" "---------------"
+        printfn "%s" "ERROR: No Arcpath provided"
+        printfn "%s" "---------------"
+        printfn "%s" usage
         0
