@@ -15,10 +15,10 @@ Executables for macOS and Windows are available under [releases](https://github.
 
 ## Usage
 
-Open a command line or terminal and run `arcIsaProcessesSiren -p local/path/to/ARC`.
+Open a command line or terminal and run `arcIsaProcessMermaid -p local/path/to/ARC`.
 
 ```bash
-USAGE: arcIsaProcessesSiren [--help] [--arcpath <path>] [--outpath <path>] [--outputmmd]
+USAGE: arcIsaProcessMermaid [--help] [--arcpath <path>] [--outpath <path>] [--outputmmd]
 
 OPTIONS:
 
