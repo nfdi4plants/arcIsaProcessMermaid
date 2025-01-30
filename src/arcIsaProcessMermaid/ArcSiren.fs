@@ -10,7 +10,7 @@ open MermaidStyling
 
 module ArcSiren = 
 
-    let replaceChars (chars) = String.map (fun c -> if Seq.exists((=)c) chars then '-' else c)    
+    let replaceChars (chars) = String.map (fun c -> if Seq.exists((=)c) chars then '_' else c)    
     let mermaidBreakingChars = "°^!§$%&/\|()=?`´*+~#;:,.<>' "
 
     let inv = 
