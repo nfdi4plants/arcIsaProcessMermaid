@@ -8,7 +8,7 @@ Tool to generate a minimal markdown containing a mermaid graph that displays an 
 
 The tool ist released via [nuget](https://www.nuget.org/packages/arcIsaProcessMermaid/).
 
-1. Install [.NET](https://dotnet.microsoft.com/en-us/download)
+1. Install [.NET 8.0](https://dotnet.microsoft.com/en-us/download)
 2. Run `dotnet tool install --global arcIsaProcessMermaid`
 
 ## Usage
