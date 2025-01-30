@@ -124,22 +124,38 @@ module ArcSiren =
                 studies
                 |> Seq.map (fun s -> "STUDY_" + s.Identifier |> replaceChars mermaidBreakingChars)
 
-            collectStudyIDs
-            |> MermaidStyling.assignMermaidClass "study"
+            match collectStudyIDs |> Seq.length < 1 with
+            | true  -> 
+                printfn "%s" "no study found"
+                ""
+            | false -> 
+                collectStudyIDs
+                |> MermaidStyling.assignMermaidClass "assay"
             
             let collectAssayIDs = 
                 assays
                 |> Seq.map (fun a -> "ASSAY_" + a.Identifier |> replaceChars mermaidBreakingChars)
 
-            collectAssayIDs
-            |> MermaidStyling.assignMermaidClass "assay"
-            
+            match collectAssayIDs |> Seq.length < 1 with
+            | true  -> 
+                printfn "%s" "no assay found"
+                ""
+            | false -> 
+                collectAssayIDs
+                |> MermaidStyling.assignMermaidClass "assay"
+        
             let collectProcessIDs = 
                 processes
                 |> Seq.map (fun p -> p.Name |> replaceChars mermaidBreakingChars)
 
-            collectProcessIDs
-            |> MermaidStyling.assignMermaidClass "process"
+            match collectProcessIDs |> Seq.length < 1 with
+            | true  -> 
+                printfn "%s" "no process found"
+                ""
+            | false -> 
+                collectProcessIDs
+                |> MermaidStyling.assignMermaidClass "process"
+
         ]
         |> String.concat("\n")
 
