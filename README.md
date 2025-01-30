@@ -6,19 +6,17 @@ Tool to generate a minimal markdown containing a mermaid graph that displays an 
 
 ## Installation
 
-Executables for macOS and Windows are available under [releases](https://github.com/nfdi4plants/arcIsaProcessMermaid/releases).
+The tool ist released via [nuget](https://www.nuget.org/packages/arcIsaProcessMermaid/).
 
-1. Download and store the executable somewhere useful (e.g. program files)
-2. Add it to `$PATH` variable
-
-:bulb: On first use, one has to grant permissions (Windows Defender or macOS security warning)
+1. Install [.NET](https://dotnet.microsoft.com/en-us/download)
+2. Run `dotnet tool install --global arcIsaProcessMermaid`
 
 ## Usage
 
-Open a command line or terminal and run `arcIsaProcessesSiren -p local/path/to/ARC`.
+Open a command line or terminal and run `arcIsaProcessMermaid -p local/path/to/ARC`.
 
 ```bash
-USAGE: arcIsaProcessesSiren [--help] [--arcpath <path>] [--outpath <path>] [--outputmmd]
+USAGE: arcIsaProcessMermaid [--help] [--arcpath <path>] [--outpath <path>] [--outputmmd]
 
 OPTIONS:
 
