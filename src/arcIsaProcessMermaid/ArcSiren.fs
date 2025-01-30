@@ -136,7 +136,7 @@ module ArcSiren =
             
             let collectProcessIDs = 
                 processes
-                |> Seq.map (fun p -> p.Name.Replace(" ", "-"))
+                |> Seq.map (fun p -> p.Name |> replaceChars mermaidBreakingChars)
 
             collectProcessIDs
             |> MermaidStyling.assignMermaidClass "process"
