@@ -34,7 +34,7 @@ type CliArguments =
 let main(args) =
     let errorHandler = ProcessExiter(colorizer = function ErrorCode.HelpText -> None | _ -> Some ConsoleColor.Red)
 
-    let parser = ArgumentParser.Create<CliArguments>(programName = "arcIsaProcessesSiren", errorHandler = errorHandler)
+    let parser = ArgumentParser.Create<CliArguments>(programName = "arcIsaProcessMermaid", errorHandler = errorHandler)
 
     let usage = parser.PrintUsage()
 
