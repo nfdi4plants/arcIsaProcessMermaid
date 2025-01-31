@@ -37,7 +37,7 @@ src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid
 ### based on ARC scaffold
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p tests/example-arcs/arc-scaffold/ -o pathToBeCreated/ArcPrototype
+src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p tests/example-arcs/arc-scaffold/ -o pathToBeCreated/ArcPrototype -fd leftRight
 ```
 
 ### based on RO-Crate

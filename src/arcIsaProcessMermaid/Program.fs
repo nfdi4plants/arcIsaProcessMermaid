@@ -15,19 +15,21 @@ open ArcSiren
 //////////////////////////////////////////////////
 ////////// Handle CLI arguments
 
+[<HelpFlags([|"--help"; "-h"|])>]
+
 type CliArguments =
-    | [<AltCommandLine("-p")>][<Unique>] Arcpath of path:string
-    | [<AltCommandLine("-o")>][<Unique>] Outpath of path:string
-    | [<AltCommandLine("-mmd")>][<Unique>] OutputMMD
-    // | [<AltCommandLine("-fd")>][<Unique>] FlowDirection of string
+    | [<AltCommandLine("-p")>][<Unique>]    Arcpath of path:string
+    | [<AltCommandLine("-o")>][<Unique>]    Outpath of path:string
+    | [<AltCommandLine("-mmd")>][<Unique>]  OutputMMD
+    | [<AltCommandLine("-fd")>][<Unique>]   FlowDirection of string
 
     interface IArgParserTemplate with
         member s.Usage =
             match s with
-            | Arcpath _ -> "specify path to an ARC"
+            | Arcpath _ -> "specify path to an ARC (ARC directory or `arc-ro-crate-metadata.json`)"
             | Outpath _ -> "specify a file path and name to write results to (Default: `<path/to/ARC/arc-mermaid>.md or .mmd`)"
+            | FlowDirection _ -> "specify the direction of the flowchart: `topDown` (Default) or `leftRight`"
             | OutputMMD -> "whether to output a .mmd file instead of markdown"
-            // | FlowDirection _ -> "(Default: `topDown`)"
 
 [<EntryPoint>]
 let main(args) =
@@ -40,13 +42,16 @@ let main(args) =
     let results = parser.Parse (args)
 
     let mmd = results.Contains OutputMMD
-
-    // TODO: allow selection of flow direction via argument
-    let flowD  =  Direction.TD
-        // match results.TryGetResult(CliArguments.FlowDirection) with
-        //     | Some o -> 
-        //         o
-        //     | None ->
+  
+    let flowD =
+        match results.TryGetResult(CliArguments.FlowDirection) with
+        | Some o -> 
+            match o with
+            | "topDown"   -> Direction.TD
+            | "leftRight" -> Direction.LR
+            | _ -> Direction.TD
+        | None ->
+            Direction.TD
                 
 
     match results.TryGetResult(CliArguments.Arcpath) with
@@ -55,9 +60,7 @@ let main(args) =
         let arc = tryLoadARCFromAny(i)
 
         match results.TryGetResult(CliArguments.Outpath) with
-        | Some o -> 
-            
-            //// let op = System.IO.Path.GetDirectoryName(o)
+        | Some o ->          
             
             let op = System.IO.FileInfo(o).Directory.FullName
             
