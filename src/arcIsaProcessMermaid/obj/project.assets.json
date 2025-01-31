@@ -1578,7 +1578,7 @@
     "/Users/dominikbrilhaus/.nuget/packages/": {}
   },
   "project": {
-    "version": "1.0.3",
+    "version": "1.0.4",
     "restore": {
       "projectUniqueName": "/Users/dominikbrilhaus/github/nfdi4plants/arcIsaProcessMermaid/src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj",
       "projectName": "arcIsaProcessMermaid",

@@ -130,7 +130,7 @@ module ArcSiren =
                 ""
             | false -> 
                 collectStudyIDs
-                |> MermaidStyling.assignMermaidClass "study"
+                |> MermaidStyling.assignMermaidClass "studyStyle"
             
             let collectAssayIDs = 
                 assays
@@ -142,7 +142,7 @@ module ArcSiren =
                 ""
             | false -> 
                 collectAssayIDs
-                |> MermaidStyling.assignMermaidClass "assay"
+                |> MermaidStyling.assignMermaidClass "assayStyle"
         
             let collectProcessIDs = 
                 processes
@@ -154,7 +154,7 @@ module ArcSiren =
                 ""
             | false -> 
                 collectProcessIDs
-                |> MermaidStyling.assignMermaidClass "process"
+                |> MermaidStyling.assignMermaidClass "processStyle"
 
         ]
         |> String.concat("\n")
