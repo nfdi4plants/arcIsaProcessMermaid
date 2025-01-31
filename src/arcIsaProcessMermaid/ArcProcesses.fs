@@ -22,12 +22,12 @@ module ArcProcesses =
 
                 | None -> 
 
-                    printfn "%s" $"No Output column found in {processA.Name}"
+                    printfn "%s" $"INFO: No Output column found in {processA.Name}"
                     false
 
             | None -> 
 
-                printfn "%s" $"No Input column found in {processB.Name}"
+                printfn "%s" $"INFO: No Input column found in {processB.Name}"
                 false
 
     // Count the number of intersections
@@ -45,11 +45,11 @@ module ArcProcesses =
 
                 | None -> 
 
-                    printfn "%s" $"No Output column found in {processA.Name}"
+                    printfn "%s" $"INFO: No Output column found in {processA.Name}"
                     0
 
             | None -> 
 
-                printfn "%s" $"No Input column found in {processB.Name}"
+                printfn "%s" $"INFO: No Input column found in {processB.Name}"
                 0
 

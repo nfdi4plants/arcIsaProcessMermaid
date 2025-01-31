@@ -24,16 +24,16 @@ module ArcUtils =
             | err -> None
 
         let tryLoadARCFromAny (arcPath) =
-            printfn "%s" $"## Loading ARC from {arcPath}"
+            printfn "%s" $"INFO: Loading ARC from {arcPath}"
 
             match tryLoadARCfromROCrate arcPath with
             | Some arc -> Some arc 
             | None ->
-                printfn "%s" "### Could not load ARC from ROCrate \n --> trying to load ARC scaffold"; 
+                printfn "%s" "INFO: Could not load ARC from ROCrate. Trying to load ARC scaffold instead"; 
                 match tryLoadARCFromScaffold arcPath with
                 | Some arc -> Some arc 
                 | None -> 
-                    printfn "%s" "### Could not load ARC from scaffold";
+                    printfn "%s" "ERROR: Could not load ARC from scaffold";
                     None
 
     module Arcpaths =

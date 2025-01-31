@@ -126,7 +126,7 @@ module ArcSiren =
 
             match collectStudyIDs |> Seq.length < 1 with
             | true  -> 
-                printfn "%s" "no study found"
+                printfn "%s" "INFO: no study found"
                 ""
             | false -> 
                 collectStudyIDs
@@ -138,7 +138,7 @@ module ArcSiren =
 
             match collectAssayIDs |> Seq.length < 1 with
             | true  -> 
-                printfn "%s" "no assay found"
+                printfn "%s" "INFO: no assay found"
                 ""
             | false -> 
                 collectAssayIDs
@@ -150,7 +150,7 @@ module ArcSiren =
 
             match collectProcessIDs |> Seq.length < 1 with
             | true  -> 
-                printfn "%s" "no process found"
+                printfn "%s" "INFO: no process found"
                 ""
             | false -> 
                 collectProcessIDs
