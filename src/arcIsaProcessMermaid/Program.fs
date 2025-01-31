@@ -15,6 +15,8 @@ open ArcSiren
 //////////////////////////////////////////////////
 ////////// Handle CLI arguments
 
+[<HelpFlags([|"--help"; "-h"|])>]
+
 type CliArguments =
     | [<AltCommandLine("-p")>][<Unique>] Arcpath of path:string
     | [<AltCommandLine("-o")>][<Unique>] Outpath of path:string
