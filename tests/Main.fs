@@ -1,4 +1,4 @@
-﻿module Tests
+﻿module Tests.arcIsaProcessMermaid
 open Expecto
 
 [<EntryPoint>]
