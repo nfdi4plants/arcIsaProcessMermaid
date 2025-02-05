@@ -60,11 +60,11 @@ Based on discussions before and during the [ARC-Process-GraphViz](https://github
 
 _or_
 
-`dotnet run --project .\tests\Tests.fsproj`
+`dotnet run --project ./tests/Tests.fsproj`
 
 #### Watch
 
-`dotnet watch run --project .\tests\Tests.fsproj`
+`dotnet watch run --project ./tests/Tests.fsproj`
 
 > [!NOTE] 
 > `dotnet watch` has a issue on v9.0.1x that prevents it from running correctly: https://github.com/dotnet/sdk/issues/44908
