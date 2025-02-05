@@ -133,14 +133,14 @@ module ArcSiren =
             yield! createIsaMermaidBody arc
         ])
         |> siren.write
-        |> fun x -> "```mermaid\n" + x + "\n```"
 
     let arcIsaProcesses2mermaid (flowDirection : Direction) (arc : ARC) (outputFileName : string) (mmd: bool) =
-        let o = 
-            match mmd with
-            | false ->
-                System.IO.Path.ChangeExtension(outputFileName, ".md")
-            | true ->
-                System.IO.Path.ChangeExtension(outputFileName, ".mmd")
-        let c = createArcProcessMermaid flowDirection arc
-        System.IO.File.WriteAllText(o, c)
+        match mmd with
+        | false ->
+            let o = System.IO.Path.ChangeExtension(outputFileName, ".md")
+            ["```mermaid"; createArcProcessMermaid flowDirection arc; "```"]
+            |> fun c -> System.IO.File.WriteAllLines(o, c)
+        | true ->
+            let o = System.IO.Path.ChangeExtension(outputFileName, ".mmd")
+            [createArcProcessMermaid flowDirection arc]
+            |> fun c -> System.IO.File.WriteAllLines(o, c)
