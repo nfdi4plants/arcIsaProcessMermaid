@@ -97,7 +97,7 @@ dotnet run --help
 
 ```bash
 nuget setApiKey <>
-nuget push src/arcIsaProcessMermaid/bin/Release/arcIsaProcessMermaid.1.0.4.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/arcIsaProcessMermaid/bin/Release/arcIsaProcessMermaid.1.0.5.nupkg -Source https://api.nuget.org/v3/index.json
 ```
 
 

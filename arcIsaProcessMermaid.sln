@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B3530E0C-E5E
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "arcIsaProcessMermaid", "src\arcIsaProcessMermaid\arcIsaProcessMermaid.fsproj", "{316A2D94-2973-4554-BDEB-F8C817CC273D}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Tests", "tests\Tests.fsproj", "{A044B661-ED3C-46C1-A722-BC66D5A05DCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{316A2D94-2973-4554-BDEB-F8C817CC273D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{316A2D94-2973-4554-BDEB-F8C817CC273D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{316A2D94-2973-4554-BDEB-F8C817CC273D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A044B661-ED3C-46C1-A722-BC66D5A05DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A044B661-ED3C-46C1-A722-BC66D5A05DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A044B661-ED3C-46C1-A722-BC66D5A05DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A044B661-ED3C-46C1-A722-BC66D5A05DCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{316A2D94-2973-4554-BDEB-F8C817CC273D} = {B3530E0C-E5EB-41FA-8AE6-4929EB85CF93}

@@ -49,3 +49,22 @@ Alternatively, copy/paste it to [Mermaid Live Editor](http://mermaid.live).
 ## Idea
 
 Based on discussions before and during the [ARC-Process-GraphViz](https://github.com/nfdi4plants/ARC-Symposium/tree/main/ARC-Process-GraphViz/) project at ARC symposium 2024.
+
+## Development
+
+### Tests
+
+#### Run
+
+`dotnet test`
+
+_or_
+
+`dotnet run --project ./tests/Tests.fsproj`
+
+#### Watch
+
+`dotnet watch run --project ./tests/Tests.fsproj`
+
+> [!NOTE] 
+> `dotnet watch` has a issue on v9.0.1x that prevents it from running correctly: https://github.com/dotnet/sdk/issues/44908
