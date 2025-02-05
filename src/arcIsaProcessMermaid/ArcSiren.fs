@@ -91,13 +91,13 @@ module ArcSiren =
                 let sLabel = "Study: " + (study.Title |> Option.defaultValue study.Identifier)
                 // link studies to investigation
                 flowchart.linkArrow(investigationId, subgraphId)
-                flowchart.``class``([studyId], studyStyle.className)
+                flowchart.``class``([subgraphId], studyStyle.className)
                 // add study subgraphs
                 flowchart.subgraphNamed(subgraphId, sLabel, [
                     for table in study do
                         let tableId = getId(table.Name)
-                        flowchart.``class``([tableId], processStyle.className)
                         flowchart.node(tableId, table.Name)
+                        flowchart.``class``([tableId], processStyle.className)
                 ])
 
             // add assay subgraphs
@@ -105,13 +105,13 @@ module ArcSiren =
                 let assayId = getId(assay.Identifier)
                 let subgraphId = "ASSAY_" + assayId
                 let aLabel = "Assay: " + assay.Identifier
-                flowchart.``class``([assayId], assayStyle.className)                
                 flowchart.subgraphNamed(subgraphId, aLabel, [
                     for table in assay do
                         let tableId = getId(table.Name)
-                        flowchart.``class``([tableId], processStyle.className)
                         flowchart.node(tableId, table.Name)            
+                        flowchart.``class``([tableId], processStyle.className)
                 ])
+                flowchart.``class``([subgraphId], assayStyle.className)                
 
             // add process-to-process edges, with sample numbers as edge name
             for table1 in processes do
