@@ -73,7 +73,11 @@ let main(args) =
             let op = System.IO.FileInfo(i).Directory.FullName            
             let o = System.IO.Path.Join(op, "arc-mermaid")
 
-            printfn "%s" $"INFO: Outpath missing; Defaulting to {o}"
+            match mmd with
+            | false ->
+                printfn "%s" $"INFO: Outpath missing; Defaulting to {o}.md"
+            | true ->
+                printfn "%s" $"INFO: Outpath missing; Defaulting to {o}.mmd"            
 
             ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
             1
