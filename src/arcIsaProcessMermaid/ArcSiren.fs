@@ -9,10 +9,7 @@ open ArcProcesses
 open MermaidStyling
 open System.Collections.Generic
 
-module ArcSiren = 
-
-    let replaceChars (chars) = String.map (fun c -> if Seq.exists((=)c) chars then '_' else c)    
-    let mermaidBreakingChars = "°^!§$%&/\|()=?`´*+~#;:,.<>' "
+module ArcSiren =
 
     let investigationStyle = 
         {
