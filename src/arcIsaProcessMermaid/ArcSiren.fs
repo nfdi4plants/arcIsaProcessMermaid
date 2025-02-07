@@ -15,7 +15,7 @@ module ArcSiren =
         {
             className   = "investigationStyle"
             style       = [|
-                "fill", "#62d4c1"
+                "fill", "#6c7885"
                 "color", "#2d3e50"
                 "fontWeight", "bold"
             |]
