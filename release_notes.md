@@ -90,14 +90,14 @@ dotnet pack
 
 ```bash
 cd src/arcIsaProcessMermaid
-dotnet run --help
+dotnet run -- --help
 ```
 
 ### Publish to nuget
 
 ```bash
 nuget setApiKey <>
-nuget push src/arcIsaProcessMermaid/bin/Release/arcIsaProcessMermaid.1.0.5.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/arcIsaProcessMermaid/bin/Release/arcIsaProcessMermaid.1.0.6.nupkg -Source https://api.nuget.org/v3/index.json
 ```
 
 

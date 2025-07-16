@@ -61,15 +61,11 @@ let main(args) =
 
         match results.TryGetResult(CliArguments.Outpath) with
         | Some o ->          
-            
             let op = System.IO.FileInfo(o).Directory.FullName
-            
             System.IO.Directory.CreateDirectory(op) |> ignore
-
             ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
-            1
+            0
         | None -> 
-
             let op = System.IO.FileInfo(i).Directory.FullName            
             let o = System.IO.Path.Join(op, "arc-mermaid")
 
@@ -77,13 +73,14 @@ let main(args) =
             | false ->
                 printfn "%s" $"INFO: Outpath missing; Defaulting to {o}.md"
             | true ->
-                printfn "%s" $"INFO: Outpath missing; Defaulting to {o}.mmd"            
+                printfn "%s" $"INFO: Outpath missing; Defaulting to {o}.mmd"
 
             ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
-            1
+            0
+
     | None ->
         printfn "%s" "---------------"
         printfn "%s" "ERROR: No Arcpath provided"
         printfn "%s" "---------------"
         printfn "%s" usage
-        0
+        1
