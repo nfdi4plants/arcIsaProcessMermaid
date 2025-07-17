@@ -56,17 +56,23 @@ let main(args) =
 
     match results.TryGetResult(CliArguments.Arcpath) with
     | Some i ->
-
-        let arc = tryLoadARCFromAny(i)
+        let normalizedArcPath = System.IO.Path.GetFullPath(i)
+        let arc = tryLoadARCFromAny(normalizedArcPath)
 
         match results.TryGetResult(CliArguments.Outpath) with
-        | Some o ->          
-            let op = System.IO.FileInfo(o).Directory.FullName
+        | Some o ->
+            let normalizedOutPath = System.IO.Path.GetFullPath(o)
+            let op = System.IO.FileInfo(normalizedOutPath).Directory.FullName
             System.IO.Directory.CreateDirectory(op) |> ignore
-            ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
+            ArcSiren.arcIsaProcesses2mermaid flowD arc.Value normalizedOutPath mmd
             0
-        | None -> 
-            let op = System.IO.FileInfo(i).Directory.FullName            
+        | None ->
+            let op = 
+                if System.IO.Directory.Exists(normalizedArcPath) then 
+                    normalizedArcPath 
+                else 
+                    System.IO.FileInfo(normalizedArcPath).Directory.FullName
+
             let o = System.IO.Path.Join(op, "arc-mermaid")
 
             match mmd with
@@ -77,6 +83,7 @@ let main(args) =
 
             ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
             0
+
 
     | None ->
         printfn "%s" "---------------"
