@@ -15,9 +15,12 @@ module ArcSiren =
         {
             className   = "investigationStyle"
             style       = [|
-                "fill", "#6c7885"
+                "fill", "#4FB3D9"
+                "rx", ".4em"
+                "ry", ".4em"
                 "color", "#2d3e50"
-                "fontWeight", "bold"
+                "stroke", "#2d3e50"
+                "font-weight", "bold"
             |]
         }
         
@@ -25,18 +28,24 @@ module ArcSiren =
         {
             className   = "studyStyle"
             style       = [|
-                "fill", "#62d4c1"
+                "fill", "#dae7c1"
+                "rx", ".4em"
+                "ry", ".4em"
                 "color", "#2d3e50"
-                "fontWeight", "bold"
+                "stroke", "#2d3e50"
+                "font-weight", "bold"
             |]
         }    
     let assayStyle = 
         {
             className   = "assayStyle"
             style       = [|
-                "fill", "#ffd34d"
+                "fill", "#ffe080"
+                "rx", ".4em"
+                "ry", ".4em"
                 "color", "#2d3e50"
-                "fontWeight", "bold"
+                "stroke", "#2d3e50"
+                "font-weight", "bold"
             |]
         }
         
@@ -44,8 +53,12 @@ module ArcSiren =
         {
             className   = "processStyle"
             style       = [|
-                "fill", "#D46275"
+                "fill", "#E08F9C"
+                "rx", ".4em"
+                "ry", ".4em"
                 "color", "#2d3e50"
+                "stroke", "#2d3e50"
+                "font-weight", "normal"
             |]
         }
 
