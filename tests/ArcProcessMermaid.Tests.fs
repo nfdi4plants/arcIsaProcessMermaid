@@ -19,10 +19,10 @@ let Main = testList "ArcProcessMermaid.Tests" [
         let actual = ArcIsaProcessMermaid.ArcSiren.createArcProcessMermaid direction.lr arc
         let expected = """
 flowchart LR
-    classDef investigationStyle fill:#6c7885,color:#2d3e50,fontWeight:bold;
-    classDef studyStyle fill:#62d4c1,color:#2d3e50,fontWeight:bold;
-    classDef assayStyle fill:#ffd34d,color:#2d3e50,fontWeight:bold;
-    classDef processStyle fill:#D46275,color:#2d3e50;
+    classDef investigationStyle fill:#4FB3D9,rx:.4em,ry:.4em,color:#2d3e50,stroke:#2d3e50,font-weight:bold;
+    classDef studyStyle fill:#dae7c1,rx:.4em,ry:.4em,color:#2d3e50,stroke:#2d3e50,font-weight:bold;
+    classDef assayStyle fill:#ffe080,rx:.4em,ry:.4em,color:#2d3e50,stroke:#2d3e50,font-weight:bold;
+    classDef processStyle fill:#E08F9C,rx:.4em,ry:.4em,color:#2d3e50,stroke:#2d3e50,font-weight:normal;
     id_0["ArcPrototype"]
     class id_0 investigationStyle;
     id_0-->STUDY_id_1
