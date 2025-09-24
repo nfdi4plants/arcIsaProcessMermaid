@@ -7,8 +7,12 @@
 
 ```bash
 dotnet new sln --name arcIsaProcessMermaid
-dotnet new console -lang "F#" -o src/arcIsaProcessMermaid
-dotnet sln add src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
+# dotnet new console -lang "F#" -o src/arcIsaProcessMermaid
+
+dotnet sln arcIsaProcessMermaid.sln add src/ArcIsaProcessMermaid.Core/ArcIsaProcessMermaid.Core.fsproj
+dotnet sln arcIsaProcessMermaid.sln add src/ArcIsaProcessMermaid.Tool/ArcIsaProcessMermaid.Tool.fsproj
+
+
 ```
 
 ### add dependencies
@@ -25,25 +29,25 @@ cd ../../
 ## Build project
 
 ```bash
-dotnet build src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj
+dotnet build src/arcIsaProcessMermaid.Tool/ArcIsaProcessMermaid.Tool.fsproj
 ```
 
 ## Test
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid
+src/arcIsaProcessMermaid.Tool/bin/Debug/net8.0/ArcIsaProcessMermaid.Tool
 ```
 
 ### based on ARC scaffold
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p tests/example-arcs/arc-scaffold/ -mmd -o pathToBeCreated/ArcPrototype -fd leftRight
+src/arcIsaProcessMermaid.Tool/bin/Debug/net8.0/ArcIsaProcessMermaid.Tool -p tests/example-arcs/arc-scaffold/ -mmd -o pathToBeCreated/ArcPrototype -fd leftRight
 ```
 
 ### based on RO-Crate
 
 ```bash
-src/arcIsaProcessMermaid/bin/Debug/net8.0/arcIsaProcessMermaid -p tests/example-arcs/arc-ro-crate-metadata.json -o Facultative-CAM-in-Talinum
+src/arcIsaProcessMermaid.Tool/bin/Debug/net8.0/ArcIsaProcessMermaid.Tool -p tests/example-arcs/arc-ro-crate-metadata.json -o Facultative-CAM-in-Talinum
 ```
 
 ## Compile executables
@@ -89,8 +93,9 @@ dotnet pack
 ### Test
 
 ```bash
-cd src/arcIsaProcessMermaid
-dotnet run -- --help
+cd src/arcIsaProcessMermaid.Tool
+dotnet run --framework net8.0 -- --help
+dotnet run --framework net9.0 -- --help
 ```
 
 ### Publish to nuget

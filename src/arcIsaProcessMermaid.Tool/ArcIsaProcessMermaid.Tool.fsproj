@@ -7,7 +7,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>arcIsaProcessMermaid</ToolCommandName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>ArcIsaProcessMermaid</PackageId>
+    <PackageId>arcIsaProcessMermaid</PackageId>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Description>CLI tool for ArcIsaProcessMermaid</Description>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../Core/Core.fsproj" />
+    <ProjectReference Include="../arcIsaProcessMermaid.Core/arcIsaProcessMermaid.Core.fsproj" />
     <PackageReference Include="ARCtrl" Version="3.0.0-alpha.3" />
     <PackageReference Include="ARCtrl.QueryModel" Version="2.1.0" />
     <PackageReference Include="Argu" Version="6.2.4" />
