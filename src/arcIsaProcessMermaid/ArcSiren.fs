@@ -55,6 +55,7 @@ module ArcProcesses =
                 printfn "%s" $"INFO: No Input column found in {processB.Name}"
                 0
 
+
 module ArcSiren =
 
     type MermaidClassDef =
@@ -129,16 +130,19 @@ module ArcSiren =
         let key_dict = System.Collections.Generic.Dictionary<string, string>()
         let mutable counter = 0
         let getId (key: string) = getId key_dict &counter key
-        let investigation = arc.ISA.Value
-        let studies = investigation.Studies
-        let assays = investigation.Assays
-        let processes = investigation.ArcTables
-        let investigationId = getId (investigation.Identifier)
+        
+        // let investigation = arc.ISA.Value
+        
+        let studies = arc.Studies
+        let assays = arc.Assays
+        let processes = arc.ArcTables
+        
+        let investigationId = getId (arc.Identifier)
         [
             // add investigation start-node
             flowchart.node(
                 investigationId, 
-                investigation.Title |> Option.defaultValue "<no-title>" |> formatting.unicode
+                arc.Title |> Option.defaultValue "<no-title>" |> formatting.unicode
             )
             flowchart.``class``([investigationId], investigationStyle.className)
             
@@ -149,6 +153,7 @@ module ArcSiren =
             for study in studies do
                 let studyId = getId(study.Identifier)
                 let subgraphId = "STUDY_" + studyId
+                //// let sLabel = "Study:" + ArcUtils.Arcpaths.generateStudyLinkFromRoot s.Identifier "."
                 let sLabel = "Study: " + (study.Title |> Option.defaultValue study.Identifier)
                 // link studies to investigation
                 flowchart.linkArrow(investigationId, subgraphId)

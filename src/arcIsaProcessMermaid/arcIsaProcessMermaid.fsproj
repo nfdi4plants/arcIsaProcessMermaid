@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <VersionPrefix>1.0.8</VersionPrefix>
+    <VersionPrefix>1.0.9</VersionPrefix>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <PackAsTool>true</PackAsTool>
@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ARCtrl" Version="3.0.0-alpha.3" />
     <PackageReference Include="ARCtrl.QueryModel" Version="2.1.0" />
     <PackageReference Include="Argu" Version="6.2.4" />
     <PackageReference Include="Siren" Version="0.3.2" />

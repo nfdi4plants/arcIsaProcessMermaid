@@ -13,7 +13,7 @@ let Main = testList "ArcProcessMermaid.Tests" [
         Expect.equal actual expected "1 should be equal to 1"
     testCase "Ensure load ARC" <| fun _ ->
         let arc = loadArc "example-arcs/arc-scaffold"
-        Expect.isSome arc.ISA ""
+        Expect.isSome arc.Title ""
     testCase "ARC to md" <| fun _ ->
         let arc = loadArc "example-arcs/arc-scaffold"
         let actual = ArcIsaProcessMermaid.ArcSiren.createArcProcessMermaid direction.lr arc
@@ -39,24 +39,24 @@ flowchart LR
         id_4[experiment2]
         class id_4 processStyle;
     end
-    subgraph ASSAY_id_5[Assay: measurement1]
-        id_6[Cell Lysis]
-        class id_6 processStyle;
-        id_7[Protein Extraction]
-        class id_7 processStyle;
-        id_8[Protein Measurement]
-        class id_8 processStyle;
-        id_9[Computational Proteome Analysis]
-        class id_9 processStyle;
+    subgraph ASSAY_id_5[Assay: measurement2]
     end
     class ASSAY_id_5 assayStyle;
-    subgraph ASSAY_id_10[Assay: measurement2]
+    subgraph ASSAY_id_6[Assay: measurement1]
+        id_7[Cell Lysis]
+        class id_7 processStyle;
+        id_8[Protein Extraction]
+        class id_8 processStyle;
+        id_9[Protein Measurement]
+        class id_9 processStyle;
+        id_10[Computational Proteome Analysis]
+        class id_10 processStyle;
     end
-    class ASSAY_id_10 assayStyle;
-    id_2-->|6|id_6
-    id_6-->|6|id_7
+    class ASSAY_id_6 assayStyle;
+    id_2-->|6|id_7
     id_7-->|6|id_8
     id_8-->|6|id_9
+    id_9-->|6|id_10
 
 """
         Expect.trimEqual actual expected ""
