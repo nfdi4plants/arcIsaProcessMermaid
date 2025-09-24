@@ -2,6 +2,7 @@ module Tests.ArcProcessMermaid
 
 open Expecto
 open ARCtrl
+open ArcIsaProcessMermaid.Core
 
 open Siren
 
@@ -16,7 +17,7 @@ let Main = testList "ArcProcessMermaid.Tests" [
         Expect.isSome arc.Title ""
     testCase "ARC to md" <| fun _ ->
         let arc = loadArc "example-arcs/arc-scaffold"
-        let actual = ArcIsaProcessMermaid.ArcSiren.createArcProcessMermaid direction.lr arc
+        let actual = ArcSiren.createArcProcessMermaid direction.lr arc
         let expected = """
 flowchart LR
     classDef investigationStyle fill:#4FB3D9,rx:.4em,ry:.4em,color:#2d3e50,stroke:#2d3e50,font-weight:bold;

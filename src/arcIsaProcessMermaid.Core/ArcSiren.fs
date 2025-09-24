@@ -1,4 +1,4 @@
-namespace ArcIsaProcessMermaid
+namespace ArcIsaProcessMermaid.Core
 
 open ARCtrl
 open ARCtrl.QueryModel

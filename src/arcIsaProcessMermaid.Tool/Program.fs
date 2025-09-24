@@ -4,6 +4,7 @@ open Siren
 open Argu
 open System
 open ArcUtils.Arcload
+open ArcIsaProcessMermaid.Core
 
 //////////////////////////////////////////////////
 ////////// Handle CLI arguments
