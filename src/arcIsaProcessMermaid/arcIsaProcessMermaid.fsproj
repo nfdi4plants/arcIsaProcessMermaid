@@ -11,8 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ArcProcesses.fs" />
-    <Compile Include="MermaidStyling.fs" />
     <Compile Include="ArcUtils.fs" />
     <Compile Include="ArcSiren.fs" />
     <Compile Include="Program.fs" />

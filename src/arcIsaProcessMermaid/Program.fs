@@ -1,16 +1,9 @@
 module ArcIsaProcessMermaid.Program
 
-open ARCtrl
-open ARCtrl.QueryModel
 open Siren
 open Argu
 open System
-
 open ArcUtils.Arcload
-open ArcUtils.Arcpaths
-open ArcProcesses
-open MermaidStyling
-open ArcSiren
 
 //////////////////////////////////////////////////
 ////////// Handle CLI arguments
