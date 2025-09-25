@@ -1,24 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <VersionPrefix>1.0.8</VersionPrefix>
+    <Version>1.0.10-alpha.1</Version>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>arcIsaProcessMermaid</ToolCommandName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <BuildOnPack>true</BuildOnPack>
+    <PackageId>arcIsaProcessMermaid</PackageId>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>CLI tool for ArcIsaProcessMermaid</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ArcProcesses.fs" />
-    <Compile Include="MermaidStyling.fs" />
     <Compile Include="ArcUtils.fs" />
-    <Compile Include="ArcSiren.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../arcIsaProcessMermaid.Core/arcIsaProcessMermaid.Core.fsproj" />
+    <PackageReference Include="ARCtrl" Version="3.0.0-alpha.3" />
     <PackageReference Include="ARCtrl.QueryModel" Version="2.1.0" />
     <PackageReference Include="Argu" Version="6.2.4" />
     <PackageReference Include="Siren" Version="0.3.2" />
