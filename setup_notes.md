@@ -59,13 +59,6 @@ src/arcIsaProcessMermaid.Tool/bin/Debug/net8.0/ArcIsaProcessMermaid.Tool -p test
 src/arcIsaProcessMermaid.Tool/bin/Debug/net8.0/ArcIsaProcessMermaid.Tool -p tests/example-arcs/arc-ro-crate-metadata.json -o Facultative-CAM-in-Talinum
 ```
 
-## Compile executables
-
-```bash
-dotnet publish --runtime win-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
-dotnet publish --runtime osx-x64 -p:PublishReadyToRunShowWarnings=true -p:PublishSingleFile=true
-```
-
 ## Pack via dotnet and publish on nuget
 
 ### Adapt .fsproj file
@@ -111,8 +104,8 @@ dotnet run --framework net9.0 -- --help
 
 ```bash
 # nuget setApiKey <>
-nuget push src/arcIsaProcessMermaid.Tool/bin/Release/arcIsaProcessMermaid.1.0.10-alpha.1.nupkg -Source https://api.nuget.org/v3/index.json
-nuget push src/ArcIsaProcessMermaid.Core/bin/Release/arcIsaProcessMermaid.Core.1.0.10-alpha.1.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/arcIsaProcessMermaid.Tool/bin/Release/arcIsaProcessMermaid.1.0.10-alpha.2.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/ArcIsaProcessMermaid.Core/bin/Release/arcIsaProcessMermaid.Core.1.0.10-alpha.2.nupkg -Source https://api.nuget.org/v3/index.json
 ```
 
 ### Install tool locally
