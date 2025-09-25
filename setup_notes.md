@@ -31,7 +31,7 @@ cd ../../
 
 ## Build and pack
 
-Here done explicitly. Since `<BuildOnPack>true</BuildOnPack>` is added to the .fsproj's, the `dotnet pack` below suffices.
+Here done explicitly. Since `<BuildOnPack>true</BuildOnPack>` is added to the .fsproj's, the `dotnet pack` below should suffice.
 
 ```bash
 dotnet build src/ArcIsaProcessMermaid.Core/ArcIsaProcessMermaid.Core.fsproj -c Release
@@ -104,14 +104,6 @@ dotnet run --framework net9.0 -- --help
 
 ```bash
 # nuget setApiKey <>
-nuget push src/arcIsaProcessMermaid.Tool/bin/Release/arcIsaProcessMermaid.1.0.10-alpha.2.nupkg -Source https://api.nuget.org/v3/index.json
-nuget push src/ArcIsaProcessMermaid.Core/bin/Release/arcIsaProcessMermaid.Core.1.0.10-alpha.2.nupkg -Source https://api.nuget.org/v3/index.json
-```
-
-### Install tool locally
-
-```bash
-cd src
-dotnet new tool-manifest
-dotnet tool install --tool-path /usr/local/bin --add-source ./arcIsaProcessMermaid/bin/Release/ arcIsaProcessMermaid
+nuget push src/arcIsaProcessMermaid.Tool/bin/Release/arcIsaProcessMermaid.1.0.10-alpha.3.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/ArcIsaProcessMermaid.Core/bin/Release/arcIsaProcessMermaid.Core.1.0.10-alpha.3.nupkg -Source https://api.nuget.org/v3/index.json
 ```
