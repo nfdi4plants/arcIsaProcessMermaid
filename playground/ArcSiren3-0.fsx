@@ -172,9 +172,6 @@ module ArcSiren =
                 // Link studies to investigation
                 flowchart.linkArrow(investigationId, subgraphId)
                 
-                // Add style to study
-                flowchart.``class``([subgraphId], studyStyle.className)
-                
                 // Add study subgraph nodes
                 flowchart.subgraphNamed(subgraphId, sLabel, [
                     for table in study do
@@ -182,19 +179,27 @@ module ArcSiren =
                         flowchart.node(tableId, table.Name)
                         flowchart.``class``([tableId], processStyle.className)
                 ])
+                
+                // Add style to study subgraph
+                flowchart.``class``([subgraphId], studyStyle.className)
 
             // Add assay subgraphs
             for assay in assays do
                 let assayId = getId(assay.Identifier)
                 let subgraphId = "ASSAY_" + assayId
                 let aLabel = "Assay: " + assay.Identifier
+
+                // Add assay subgraph nodes
                 flowchart.subgraphNamed(subgraphId, aLabel, [
                     for table in assay do
                         let tableId = getId $"{assay.Identifier}:{table.Name}"
                         flowchart.node(tableId, table.Name)
+
+                        // Add style to process
                         flowchart.``class``([tableId], processStyle.className)
                 ])
-                // Add style to assay
+
+                // Add style to assay subgraph
                 flowchart.``class``([subgraphId], assayStyle.className)                
 
             // Add process-to-process edges, with sample numbers as edge name
@@ -237,8 +242,8 @@ module ArcSiren =
 
 let home = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile)
 
-let arcPath = home + "/datahub-dataplant/Facultative-CAM-in-Talinum"
+let arcPath = home + "/datahub-dataplant/colonisationfilaments"
  
 let arc = ARC.load(arcPath)
 
-ArcSiren.arcIsaProcesses2mermaid Siren.Direction.TD false arc "test" false
+ArcSiren.arcIsaProcesses2mermaid Siren.Direction.TD true arc "test" false
