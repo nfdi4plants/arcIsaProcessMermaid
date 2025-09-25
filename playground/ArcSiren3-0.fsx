@@ -7,6 +7,9 @@ open ARCtrl.QueryModel
 open Siren
 open System.Collections.Generic
 
+
+// Type to add context (ParentID = StudyID or AssayID) to an ArcTable
+
 type ProcessWithContext =
     { ParentId : string
       Table    : ArcTable }
@@ -142,7 +145,11 @@ module ArcSiren =
         
         let studies = arc.Studies
         let assays = arc.Assays
-        // let processes = arc.ArcTables
+        
+        // This looks more complicated than needed, since the 
+        // QueryModel would allow to collect all ArcTables via `let processes = arc.ArcTables`
+        // However, this would not carry the context (StudyID or AssayID along)
+        // In this way, processes are allowed to have duplicate table names across studies and assays
 
         let processes =
             seq {
