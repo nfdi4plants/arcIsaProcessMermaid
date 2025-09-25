@@ -1,15 +1,68 @@
-namespace ArcIsaProcessMermaid
+namespace ArcIsaProcessMermaid.Core
 
 open ARCtrl
 open ARCtrl.QueryModel
 open Siren
-
-open ArcUtils
-open ArcProcesses
-open MermaidStyling
 open System.Collections.Generic
 
+module ArcProcesses = 
+
+    // Determine whether one process precedes another
+    // based on min 1 intersecting Input/Output reference
+    let isPreviousProcessOf (processA: ArcTable) (processB: ArcTable) : bool =    
+    
+        match processB.TryGetInputColumn() with
+            | Some a -> 
+
+                match processA.TryGetOutputColumn() with 
+
+                | Some a -> 
+
+                    Set.intersect (set processA.OutputNames) (set processB.InputNames)
+                        |> Seq.length
+                        |> fun x -> x > 0
+
+                | None -> 
+
+                    printfn "%s" $"INFO: No Output column found in {processA.Name}"
+                    false
+
+            | None -> 
+
+                printfn "%s" $"INFO: No Input column found in {processB.Name}"
+                false
+
+    // Count the number of intersections
+    let numSamplesFromPreviousProcess (processA: ArcTable) (processB: ArcTable) : int = 
+                    
+        match processB.TryGetInputColumn() with
+            | Some a -> 
+
+                match processA.TryGetOutputColumn() with 
+
+                | Some a -> 
+
+                    Set.intersect (set processA.OutputNames) (set processB.InputNames)
+                    |> Seq.length
+
+                | None -> 
+
+                    printfn "%s" $"INFO: No Output column found in {processA.Name}"
+                    0
+
+            | None -> 
+
+                printfn "%s" $"INFO: No Input column found in {processB.Name}"
+                0
+
+
 module ArcSiren =
+
+    type MermaidClassDef =
+        { 
+            className   : string
+            style       : (string * string) []
+        }
 
     let investigationStyle = 
         {
@@ -77,16 +130,19 @@ module ArcSiren =
         let key_dict = System.Collections.Generic.Dictionary<string, string>()
         let mutable counter = 0
         let getId (key: string) = getId key_dict &counter key
-        let investigation = arc.ISA.Value
-        let studies = investigation.Studies
-        let assays = investigation.Assays
-        let processes = investigation.ArcTables
-        let investigationId = getId (investigation.Identifier)
+        
+        // let investigation = arc.ISA.Value
+        
+        let studies = arc.Studies
+        let assays = arc.Assays
+        let processes = arc.ArcTables
+        
+        let investigationId = getId (arc.Identifier)
         [
             // add investigation start-node
             flowchart.node(
                 investigationId, 
-                investigation.Title |> Option.defaultValue "<no-title>" |> formatting.unicode
+                arc.Title |> Option.defaultValue "<no-title>" |> formatting.unicode
             )
             flowchart.``class``([investigationId], investigationStyle.className)
             
