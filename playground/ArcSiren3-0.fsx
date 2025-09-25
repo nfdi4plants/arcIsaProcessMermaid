@@ -124,7 +124,7 @@ module ArcSiren =
             id
 
     /// Builds the body of the Mermaid diagram for an ARC
-    let createIsaMermaidBody (arc : ARC) =
+    let createIsaMermaidBody (addSampleNumbers : bool) (arc : ARC)  =
         // Dictionaries are mutable, any changes done to this will be propagated.
         // inv, assay, study id are key and value are mermaid ids
         let key_dict = System.Collections.Generic.Dictionary<string, string>()
@@ -204,29 +204,41 @@ module ArcSiren =
                         let nSamples = ArcProcesses.numSamplesFromPreviousProcess p1.Table p2.Table
                         let t1Id = getId($"{p1.ParentId}:{p1.Table.Name}")
                         let t2Id = getId($"{p2.ParentId}:{p2.Table.Name}")
-                        flowchart.linkArrow(t1Id, t2Id, nSamples.ToString())
+                        
+                        match addSampleNumbers with
+                        | false -> flowchart.linkArrow(t1Id, t2Id)
+                        | true -> flowchart.linkArrow(t1Id, t2Id, nSamples.ToString())
+                                
         ]
 
     /// Creates a Mermaid diagram for an ARC with specified flow direction
-    let createArcProcessMermaid (flowDirection : Direction) (arc : ARC) = 
+    let createArcProcessMermaid (flowDirection : Direction) (addSampleNumbers : bool) (arc : ARC) = 
         siren.flowchart(flowDirection, [
             flowchart.classDef(investigationStyle.className, investigationStyle.style)
             flowchart.classDef(studyStyle.className, studyStyle.style)
             flowchart.classDef(assayStyle.className, assayStyle.style)
             flowchart.classDef(processStyle.className, processStyle.style)
-            yield! createIsaMermaidBody arc
+            yield! createIsaMermaidBody addSampleNumbers arc
         ])
         |> siren.write
 
     /// Writes the Mermaid diagram to a file, as .md or .mmd
-    let arcIsaProcesses2mermaid (flowDirection : Direction) (arc : ARC) (outputFileName : string) (mmd: bool) =
+    let arcIsaProcesses2mermaid (flowDirection : Direction) (addSampleNumbers : bool) (arc : ARC) (outputFileName : string) (mmd: bool) =
         match mmd with
         | false ->
             let o = System.IO.Path.ChangeExtension(outputFileName, ".md")
-            ["```mermaid"; createArcProcessMermaid flowDirection arc; "```"]
+            ["```mermaid"; createArcProcessMermaid flowDirection addSampleNumbers arc; "```"]
             |> fun c -> System.IO.File.WriteAllLines(o, c)
         | true ->
             let o = System.IO.Path.ChangeExtension(outputFileName, ".mmd")
-            [createArcProcessMermaid flowDirection arc]
+            [createArcProcessMermaid flowDirection addSampleNumbers arc]
             |> fun c -> System.IO.File.WriteAllLines(o, c)
 
+
+let home = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile)
+
+let arcPath = home + "/datahub-dataplant/Facultative-CAM-in-Talinum"
+ 
+let arc = ARC.load(arcPath)
+
+ArcSiren.arcIsaProcesses2mermaid Siren.Direction.TD false arc "test" false
