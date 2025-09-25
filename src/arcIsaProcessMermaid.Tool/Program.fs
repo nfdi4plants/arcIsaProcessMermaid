@@ -15,6 +15,7 @@ type CliArguments =
     | [<AltCommandLine("-p")>][<Unique>]    Arcpath of path:string
     | [<AltCommandLine("-o")>][<Unique>]    Outpath of path:string
     | [<AltCommandLine("-mmd")>][<Unique>]  OutputMMD
+    | [<AltCommandLine("-sn")>][<Unique>]   SampleNumbers
     | [<AltCommandLine("-fd")>][<Unique>]   FlowDirection of string
     | [<AltCommandLine("-v")>] Version
 
@@ -25,6 +26,7 @@ type CliArguments =
             | Outpath _ -> "specify a file path and name to write results to (Default: `<path/to/ARC/arc-mermaid>.md or .mmd`)"
             | FlowDirection _ -> "specify the direction of the flowchart: `topDown` (Default) or `leftRight`"
             | OutputMMD -> "whether to output a .mmd file instead of markdown"
+            | SampleNumbers -> "whether to add the number of samples between processes to edges"
             | Version -> "show tool version"
 
 [<EntryPoint>]
@@ -45,6 +47,8 @@ let main(args) =
     else
 
         let mmd = results.Contains OutputMMD
+
+        let sn = results.Contains SampleNumbers
     
         let flowD =
             match results.TryGetResult(CliArguments.FlowDirection) with
@@ -67,7 +71,7 @@ let main(args) =
                 let normalizedOutPath = System.IO.Path.GetFullPath(o)
                 let op = System.IO.FileInfo(normalizedOutPath).Directory.FullName
                 System.IO.Directory.CreateDirectory(op) |> ignore
-                ArcSiren.arcIsaProcesses2mermaid flowD arc.Value normalizedOutPath mmd
+                ArcSiren.arcIsaProcesses2mermaid flowD sn arc.Value normalizedOutPath mmd
                 0
             | None ->
                 let op = 
@@ -84,7 +88,7 @@ let main(args) =
                 | true ->
                     printfn "%s" $"INFO: Outpath missing; Defaulting to {o}.mmd"
 
-                ArcSiren.arcIsaProcesses2mermaid flowD arc.Value o mmd
+                ArcSiren.arcIsaProcesses2mermaid flowD sn arc.Value o mmd
                 0
 
 
