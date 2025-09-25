@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <VersionPrefix>1.0.10</VersionPrefix>
+    <Version>1.0.10-alpha.1</Version>
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>arcIsaProcessMermaid</ToolCommandName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <BuildOnPack>true</BuildOnPack>
     <PackageId>arcIsaProcessMermaid</PackageId>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>

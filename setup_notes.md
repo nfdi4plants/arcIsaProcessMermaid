@@ -6,11 +6,14 @@
 ### add solution
 
 ```bash
-dotnet new sln --name arcIsaProcessMermaid
-# dotnet new console -lang "F#" -o src/arcIsaProcessMermaid
+dotnet new sln --name arcIsaProcessMermaid --force
+
+dotnet new classlib -lang "F#" -o src/ArcIsaProcessMermaid.Core
+dotnet new console -lang "F#" -o src/ArcIsaProcessMermaid.Tool
 
 dotnet sln arcIsaProcessMermaid.sln add src/ArcIsaProcessMermaid.Core/ArcIsaProcessMermaid.Core.fsproj
 dotnet sln arcIsaProcessMermaid.sln add src/ArcIsaProcessMermaid.Tool/ArcIsaProcessMermaid.Tool.fsproj
+dotnet sln arcIsaProcessMermaid.sln add tests/Tests.fsproj
 
 
 ```
@@ -26,10 +29,16 @@ dotnet add package Siren
 cd ../../
 ```
 
-## Build project
+## Build and pack
+
+Here done explicitly. Since `<BuildOnPack>true</BuildOnPack>` is added to the .fsproj's, the `dotnet pack` below suffices.
 
 ```bash
-dotnet build src/arcIsaProcessMermaid.Tool/ArcIsaProcessMermaid.Tool.fsproj
+dotnet build src/ArcIsaProcessMermaid.Core/ArcIsaProcessMermaid.Core.fsproj -c Release
+dotnet pack src/ArcIsaProcessMermaid.Core/ArcIsaProcessMermaid.Core.fsproj -c Release
+
+dotnet build src/ArcIsaProcessMermaid.Tool/ArcIsaProcessMermaid.Tool.fsproj -c Release
+dotnet pack src/ArcIsaProcessMermaid.Tool/ArcIsaProcessMermaid.Tool.fsproj -c Release
 ```
 
 ## Test
@@ -102,7 +111,8 @@ dotnet run --framework net9.0 -- --help
 
 ```bash
 # nuget setApiKey <>
-nuget push src/arcIsaProcessMermaid/bin/Release/arcIsaProcessMermaid.1.0.9.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/arcIsaProcessMermaid.Tool/bin/Release/arcIsaProcessMermaid.1.0.10-alpha.1.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/ArcIsaProcessMermaid.Core/bin/Release/arcIsaProcessMermaid.Core.1.0.10-alpha.1.nupkg -Source https://api.nuget.org/v3/index.json
 ```
 
 ### Install tool locally

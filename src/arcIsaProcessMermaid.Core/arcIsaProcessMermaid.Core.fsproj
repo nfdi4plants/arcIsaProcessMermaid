@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Version>1.0.10-alpha.1</Version>
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <BuildOnPack>true</BuildOnPack>
     <PackageId>arcIsaProcessMermaid.Core</PackageId>
-    <Version>1.0.10</Version>
     <Description>Reusable library for ArcIsaProcessMermaid functions</Description>
   </PropertyGroup>
   
@@ -17,6 +18,7 @@
     <PackageReference Include="ARCtrl.QueryModel" Version="2.1.0" />
     <PackageReference Include="Argu" Version="6.2.4" />
     <PackageReference Include="Siren" Version="0.3.2" />
+    <None Include="../../LICENSE" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>
