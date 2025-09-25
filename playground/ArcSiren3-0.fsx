@@ -7,6 +7,11 @@ open ARCtrl.QueryModel
 open Siren
 open System.Collections.Generic
 
+type ProcessWithContext =
+    { ParentId : string
+      Table    : ArcTable }
+
+
 module ArcProcesses = 
 
     // Determine whether one process precedes another
@@ -137,15 +142,31 @@ module ArcSiren =
         
         let studies = arc.Studies
         let assays = arc.Assays
-        let processes = arc.ArcTables
+        // let processes = arc.ArcTables
+
+        let processes =
+            seq {
+                for s in arc.Studies do
+                    for t in s.Tables do
+                        yield { ParentId = s.Identifier; Table = t }
+
+                for a in arc.Assays do
+                    for t in a.Tables do
+                        yield { ParentId = a.Identifier; Table = t }
+            }
+            |> Seq.toList
+
         
         let investigationId = getId (arc.Identifier)
+        
         [
             // add investigation start-node
             flowchart.node(
                 investigationId, 
                 arc.Title |> Option.defaultValue "<no-title>" |> formatting.unicode
             )
+
+            // add style to investigation
             flowchart.``class``([investigationId], investigationStyle.className)
             
             // adding "study:" and "assay: to the subgraph names to allow that study / 
@@ -155,15 +176,19 @@ module ArcSiren =
             for study in studies do
                 let studyId = getId(study.Identifier)
                 let subgraphId = "STUDY_" + studyId
-                //// let sLabel = "Study:" + ArcUtils.Arcpaths.generateStudyLinkFromRoot s.Identifier "."
                 let sLabel = "Study: " + (study.Title |> Option.defaultValue study.Identifier)
-                // link studies to investigation
+                
+                // link studies to investigation (unless one of the study's tables has a preceding one)
+                
                 flowchart.linkArrow(investigationId, subgraphId)
+                
+                // add style to study
                 flowchart.``class``([subgraphId], studyStyle.className)
+                
                 // add study subgraphs
                 flowchart.subgraphNamed(subgraphId, sLabel, [
                     for table in study do
-                        let tableId = getId(table.Name)
+                        let tableId = getId $"{study.Identifier}:{table.Name}"
                         flowchart.node(tableId, table.Name)
                         flowchart.``class``([tableId], processStyle.className)
                 ])
@@ -175,24 +200,21 @@ module ArcSiren =
                 let aLabel = "Assay: " + assay.Identifier
                 flowchart.subgraphNamed(subgraphId, aLabel, [
                     for table in assay do
-                        let tableId = getId(table.Name)
-                        flowchart.node(tableId, table.Name)            
+                        let tableId = getId $"{assay.Identifier}:{table.Name}"
+                        flowchart.node(tableId, table.Name)
                         flowchart.``class``([tableId], processStyle.className)
                 ])
+                // add style to assay
                 flowchart.``class``([subgraphId], assayStyle.className)                
 
             // add process-to-process edges, with sample numbers as edge name
-            for table1 in processes do
-                for table2 in processes do
-                    if ArcProcesses.isPreviousProcessOf table1 table2 then
-                        let nSamples = ArcProcesses.numSamplesFromPreviousProcess table1 table2
-                        let t1Id = getId(table1.Name)
-                        let t2Id = getId(table2.Name)
-                        flowchart.linkArrow(
-                            t1Id, 
-                            t2Id, 
-                            nSamples.ToString()
-                        )
+            for p1 in processes do
+                for p2 in processes do
+                    if ArcProcesses.isPreviousProcessOf p1.Table p2.Table then
+                        let nSamples = ArcProcesses.numSamplesFromPreviousProcess p1.Table p2.Table
+                        let t1Id = getId($"{p1.ParentId}:{p1.Table.Name}")
+                        let t2Id = getId($"{p2.ParentId}:{p2.Table.Name}")
+                        flowchart.linkArrow(t1Id, t2Id, nSamples.ToString())
         ]
 
     let createArcProcessMermaid (flowDirection : Direction) (arc : ARC) = 
@@ -216,12 +238,3 @@ module ArcSiren =
             [createArcProcessMermaid flowDirection arc]
             |> fun c -> System.IO.File.WriteAllLines(o, c)
 
-
-let home = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile)
-
-let arcPath = home + "/datahub-dataplant/Facultative-CAM-in-Talinum"
- 
-let arc = ARC.load(arcPath)
-
-
-ArcSiren.arcIsaProcesses2mermaid Siren.Direction.TD arc "test" false
