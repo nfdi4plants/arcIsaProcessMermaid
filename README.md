@@ -69,3 +69,21 @@ _or_
 
 > [!NOTE] 
 > `dotnet watch` has a issue on v9.0.1x that prevents it from running correctly: https://github.com/dotnet/sdk/issues/44908
+
+
+### Using the package in scripts
+
+The core functions can directly be used in .NET, e.g. in an F#-script:
+
+```fsharp
+#r "nuget: arcIsaProcessMermaid.Core, 1.0.10-alpha.3"
+
+open ArcIsaProcessMermaid.Core
+open ARCtrl
+
+let arcPath = "path/to/local/ARC"
+
+let arc = ARC.load(arcPath)
+
+ArcSiren.createArcProcessMermaid Siren.Direction.LR true arc
+```
