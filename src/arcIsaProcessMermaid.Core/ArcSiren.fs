@@ -1,7 +1,6 @@
 namespace ArcIsaProcessMermaid.Core
 
 open ARCtrl
-open ARCtrl.QueryModel
 open Siren
 open System.Collections.Generic
 
