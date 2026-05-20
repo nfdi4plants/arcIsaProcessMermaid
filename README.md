@@ -68,7 +68,7 @@ _or_
 
 #### Watch
 
-`dotnet watch run --project ./tests/Tests.fsproj`
+`dotnet watch run --framework net9.0 --project ./tests/Tests.fsproj`
 
 > [!NOTE] 
 > `dotnet watch` has a issue on v9.0.1x that prevents it from running correctly: https://github.com/dotnet/sdk/issues/44908
