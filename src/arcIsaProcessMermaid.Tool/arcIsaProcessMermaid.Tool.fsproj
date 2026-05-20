@@ -20,12 +20,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../arcIsaProcessMermaid.Core/arcIsaProcessMermaid.Core.fsproj" />
     <PackageReference Include="ARCtrl" Version="3.0.3" />
     <PackageReference Include="Argu" Version="6.2.4" />
     <PackageReference Include="Siren" Version="0.3.2" />
-    <None Include="../../README.md" Pack="true" PackagePath=""/>
-    <None Include="../../LICENSE" Pack="true" PackagePath=""/>
+    <None Include="../../README.md" Pack="true" PackagePath="" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\arcIsaProcessMermaid.Core\arcIsaProcessMermaid.Core.fsproj" />
   </ItemGroup>
 
 </Project>
