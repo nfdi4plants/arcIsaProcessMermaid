@@ -22,7 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="../arcIsaProcessMermaid.Core/arcIsaProcessMermaid.Core.fsproj" />
     <PackageReference Include="ARCtrl" Version="3.0.3" />
-    <PackageReference Include="ARCtrl.QueryModel" Version="2.1.0" />
+    <PackageReference Include="ARCtrl.QueryModel" Version="3.0.0-alpha.1" />
     <PackageReference Include="Argu" Version="6.2.4" />
     <PackageReference Include="Siren" Version="0.3.2" />
     <None Include="../../README.md" Pack="true" PackagePath=""/>
