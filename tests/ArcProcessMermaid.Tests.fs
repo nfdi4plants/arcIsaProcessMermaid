@@ -27,37 +27,37 @@ flowchart LR
     id_0["ArcPrototype"]
     class id_0 investigationStyle;
     id_0-->STUDY_id_1
-    class STUDY_id_1 studyStyle;
     subgraph STUDY_id_1[Study: Prototype for experimental data]
         id_2[CellCultivation]
         class id_2 processStyle;
         id_3[AccessoryDataRetrieval]
         class id_3 processStyle;
     end
+    class STUDY_id_1 studyStyle;
     id_0-->STUDY_id_4
-    class STUDY_id_4 studyStyle;
     subgraph STUDY_id_4[Study: experiment2]
-        id_4[experiment2]
-        class id_4 processStyle;
+        id_5[experiment2]
+        class id_5 processStyle;
     end
-    subgraph ASSAY_id_5[Assay: measurement2]
-    end
-    class ASSAY_id_5 assayStyle;
-    subgraph ASSAY_id_6[Assay: measurement1]
-        id_7[Cell Lysis]
-        class id_7 processStyle;
-        id_8[Protein Extraction]
-        class id_8 processStyle;
-        id_9[Protein Measurement]
-        class id_9 processStyle;
-        id_10[Computational Proteome Analysis]
-        class id_10 processStyle;
+    class STUDY_id_4 studyStyle;
+    subgraph ASSAY_id_6[Assay: measurement2]
     end
     class ASSAY_id_6 assayStyle;
-    id_2-->|6|id_7
-    id_7-->|6|id_8
+    subgraph ASSAY_id_7[Assay: measurement1]
+        id_8[Cell Lysis]
+        class id_8 processStyle;
+        id_9[Protein Extraction]
+        class id_9 processStyle;
+        id_10[Protein Measurement]
+        class id_10 processStyle;
+        id_11[Computational Proteome Analysis]
+        class id_11 processStyle;
+    end
+    class ASSAY_id_7 assayStyle;
+    id_2-->|6|id_8
     id_8-->|6|id_9
     id_9-->|6|id_10
+    id_10-->|6|id_11
 
 """
         Expect.trimEqual actual expected ""

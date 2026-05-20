@@ -23,6 +23,9 @@ OPTIONS:
     --arcpath, -p <path>  specify path to an ARC
     --outpath, -o <path>  specify a file path and name to write results to (Default: `<path/to/ARC/arc-mermaid>.md or .mmd`)
     --outputmmd, -mmd     whether to output a .mmd file instead of markdown
+    --samplenumbers, -sn  whether to add the number of samples between processes to edges
+    --flowdirection, -fd  specify the direction of the flowchart: `topDown` (Default) or `leftRight`
+    --version, -v         show tool version
     --help                display this list of options.
 ```
 
