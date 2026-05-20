@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Version>1.1.0-alpha.1</Version>
-    <TargetFrameworks>net10.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <BuildOnPack>true</BuildOnPack>
     <PackageId>arcIsaProcessMermaid.Core</PackageId>
