@@ -6,7 +6,7 @@
     <OutputType>Exe</OutputType>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>arcIsaProcessMermaid</ToolCommandName>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <BuildOnPack>true</BuildOnPack>
     <PackageId>arcIsaProcessMermaid</PackageId>
     <PackageReadmeFile>README.md</PackageReadmeFile>
