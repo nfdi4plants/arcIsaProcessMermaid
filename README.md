@@ -8,7 +8,7 @@ Tool to generate a minimal markdown containing a mermaid graph that displays an 
 
 The tool ist released via [nuget](https://www.nuget.org/packages/arcIsaProcessMermaid/).
 
-1. Install [.NET](https://dotnet.microsoft.com/en-us/download) v8.0 or v9.0
+1. Install [.NET](https://dotnet.microsoft.com/en-us/download) v10.0 or v9.0
 2. Run `dotnet tool install --global arcIsaProcessMermaid`
 
 ## Usage
@@ -63,12 +63,30 @@ Based on discussions before and during the [ARC-Process-GraphViz](https://github
 
 _or_
 
-`dotnet run --framework net8.0 --project ./tests/Tests.fsproj`
+`dotnet run --framework net10.0 --project ./tests/Tests.fsproj`
 `dotnet run --framework net9.0 --project ./tests/Tests.fsproj`
 
 #### Watch
 
-`dotnet watch run --project ./tests/Tests.fsproj`
+`dotnet watch run --framework net9.0 --project ./tests/Tests.fsproj`
 
 > [!NOTE] 
 > `dotnet watch` has a issue on v9.0.1x that prevents it from running correctly: https://github.com/dotnet/sdk/issues/44908
+
+
+### Using the package in scripts
+
+The core functions can directly be used in .NET, e.g. in an F#-script:
+
+```fsharp
+#r "nuget: arcIsaProcessMermaid.Core, 1.0.1-alpha.1"
+
+open ArcIsaProcessMermaid.Core
+open ARCtrl
+
+let arcPath = <path/to/ARC>
+
+let arc = ARC.load(arcPath)
+
+ArcSiren.createArcProcessMermaid Siren.Direction.TD arc
+```

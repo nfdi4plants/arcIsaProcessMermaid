@@ -44,19 +44,19 @@ dotnet pack src/ArcIsaProcessMermaid.Tool/ArcIsaProcessMermaid.Tool.fsproj -c Re
 ## Test
 
 ```bash
-src/arcIsaProcessMermaid.Tool/bin/Debug/net8.0/ArcIsaProcessMermaid.Tool
+src/arcIsaProcessMermaid.Tool/bin/Debug/net10.0/ArcIsaProcessMermaid.Tool
 ```
 
 ### based on ARC scaffold
 
 ```bash
-src/arcIsaProcessMermaid.Tool/bin/Debug/net8.0/ArcIsaProcessMermaid.Tool -p tests/example-arcs/arc-scaffold/ -mmd -o pathToBeCreated/ArcPrototype -fd leftRight
+src/arcIsaProcessMermaid.Tool/bin/Debug/net10.0/ArcIsaProcessMermaid.Tool -p tests/example-arcs/arc-scaffold/ -mmd -o pathToBeCreated/ArcPrototype -fd leftRight
 ```
 
 ### based on RO-Crate
 
 ```bash
-src/arcIsaProcessMermaid.Tool/bin/Debug/net8.0/ArcIsaProcessMermaid.Tool -p tests/example-arcs/arc-ro-crate-metadata.json -o Facultative-CAM-in-Talinum
+src/arcIsaProcessMermaid.Tool/bin/Debug/net10.0/ArcIsaProcessMermaid.Tool -p tests/example-arcs/arc-ro-crate-metadata.json -o Facultative-CAM-in-Talinum
 ```
 
 ## Pack via dotnet and publish on nuget
@@ -69,7 +69,7 @@ adapt `src/arcIsaProcessMermaid/arcIsaProcessMermaid.fsproj` to include:
   <PropertyGroup>
     <VersionPrefix>1.0.1</VersionPrefix>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>arcIsaProcessMermaid</ToolCommandName>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -96,7 +96,7 @@ dotnet pack
 
 ```bash
 cd src/arcIsaProcessMermaid.Tool
-dotnet run --framework net8.0 -- --help
+dotnet run --framework net10.0 -- --help
 dotnet run --framework net9.0 -- --help
 ```
 
@@ -104,6 +104,6 @@ dotnet run --framework net9.0 -- --help
 
 ```bash
 # nuget setApiKey <>
-nuget push src/arcIsaProcessMermaid.Tool/bin/Release/arcIsaProcessMermaid.1.0.10-alpha.3.nupkg -Source https://api.nuget.org/v3/index.json
-nuget push src/ArcIsaProcessMermaid.Core/bin/Release/arcIsaProcessMermaid.Core.1.0.10-alpha.3.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/arcIsaProcessMermaid.Tool/bin/Release/arcIsaProcessMermaid.1.1.0-alpha.1.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/ArcIsaProcessMermaid.Core/bin/Release/arcIsaProcessMermaid.Core.1.1.0-alpha.1.nupkg -Source https://api.nuget.org/v3/index.json
 ```

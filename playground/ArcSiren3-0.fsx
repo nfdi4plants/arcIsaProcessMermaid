@@ -1,5 +1,5 @@
-#r "nuget: ARCtrl,3.0.0-alpha.4"
-#r "nuget: ARCtrl.QueryModel"
+#r "nuget: ARCtrl,3.0.3"
+#r "nuget: ARCtrl.QueryModel,2.1.0"
 #r "nuget: Siren"
 
 open ARCtrl
@@ -242,7 +242,7 @@ module ArcSiren =
 
 let home = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile)
 
-let arcPath = home + "/datahub-dataplant/colonisationfilaments"
+let arcPath = home + "/datahub-dataplant/Facultative-CAM-in-Talinum/"
  
 let arc = ARC.load(arcPath)
 
