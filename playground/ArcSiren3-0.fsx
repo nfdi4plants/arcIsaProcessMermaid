@@ -1,9 +1,8 @@
 #r "nuget: ARCtrl,3.0.3"
-#r "nuget: ARCtrl.QueryModel,2.1.0"
 #r "nuget: Siren"
 
 open ARCtrl
-open ARCtrl.QueryModel
+// open ARCtrl.QueryModel
 open Siren
 open System.Collections.Generic
 
@@ -14,31 +13,30 @@ type ProcessWithContext =
 
 /// Module containing functions for process relationships
 module ArcProcesses = 
-
-    /// Determines whether one process precedes another
-    /// based on at least one intersecting Input/Output reference
-    let isPreviousProcessOf (processA: ArcTable) (processB: ArcTable) : bool =    
-        match processB.TryGetInputColumn() with
-            | Some _ -> 
-                match processA.TryGetOutputColumn() with 
-                | Some _ -> 
-                    Set.intersect (set processA.OutputNames) (set processB.InputNames)
-                        |> Seq.length
-                        |> fun x -> x > 0
-                | None -> 
-                    printfn "%s" $"INFO: No Output column found in {processA.Name}"
-                    false
-            | None -> 
-                printfn "%s" $"INFO: No Input column found in {processB.Name}"
-                false
+    
+    let ioName (c: CompositeCell) =
+        match c with
+        | CompositeCell.FreeText f -> f
+        | CompositeCell.Data d -> d.NameText
+        | _ -> failwithf "Unexpected IO node: %O" c
+        
+    let ioNames (c: CompositeColumn) =
+        c.Cells |> Seq.map ioName
+    
+    let outputNames (t: ArcTable) = 
+        t.GetOutputColumn()
+        |> ioNames
+    let inputNames (t: ArcTable) = 
+        t.GetInputColumn()
+        |> ioNames
 
     /// Counts the number of intersections between process outputs and inputs
     let numSamplesFromPreviousProcess (processA: ArcTable) (processB: ArcTable) : int = 
         match processB.TryGetInputColumn() with
-            | Some _ -> 
+            | Some colB -> 
                 match processA.TryGetOutputColumn() with 
-                | Some _ -> 
-                    Set.intersect (set processA.OutputNames) (set processB.InputNames)
+                | Some colA -> 
+                    Set.intersect (ioNames colA |> set) (ioNames colB |> set)
                     |> Seq.length
                 | None -> 
                     printfn "%s" $"INFO: No Output column found in {processA.Name}"
@@ -46,6 +44,12 @@ module ArcProcesses =
             | None -> 
                 printfn "%s" $"INFO: No Input column found in {processB.Name}"
                 0
+    
+    /// Determines whether one process precedes another
+    /// based on at least one intersecting Input/Output reference
+    let isPreviousProcessOf (processA: ArcTable) (processB: ArcTable) : bool =    
+        numSamplesFromPreviousProcess processA processB > 0
+
 
 /// Module for generating Mermaid diagrams from ARC data
 module ArcSiren =
