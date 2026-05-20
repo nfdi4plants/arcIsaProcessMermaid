@@ -79,14 +79,14 @@ _or_
 The core functions can directly be used in .NET, e.g. in an F#-script:
 
 ```fsharp
-#r "nuget: arcIsaProcessMermaid.Core, 1.0.10-alpha.3"
+#r "nuget: arcIsaProcessMermaid.Core, 1.0.1-alpha.1"
 
 open ArcIsaProcessMermaid.Core
 open ARCtrl
 
-let arcPath = "path/to/local/ARC"
+let arcPath = <path/to/ARC>
 
 let arc = ARC.load(arcPath)
 
-ArcSiren.createArcProcessMermaid Siren.Direction.LR true arc
+ArcSiren.createArcProcessMermaid Siren.Direction.TD arc
 ```
