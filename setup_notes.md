@@ -104,6 +104,6 @@ dotnet run --framework net9.0 -- --help
 
 ```bash
 # nuget setApiKey <>
-nuget push src/arcIsaProcessMermaid.Tool/bin/Release/arcIsaProcessMermaid.1.1.0-alpha.1.nupkg -Source https://api.nuget.org/v3/index.json
-nuget push src/ArcIsaProcessMermaid.Core/bin/Release/arcIsaProcessMermaid.Core.1.1.0-alpha.1.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/arcIsaProcessMermaid.Tool/bin/Release/arcIsaProcessMermaid.1.1.0.nupkg -Source https://api.nuget.org/v3/index.json
+nuget push src/ArcIsaProcessMermaid.Core/bin/Release/arcIsaProcessMermaid.Core.1.1.0.nupkg -Source https://api.nuget.org/v3/index.json
 ```
