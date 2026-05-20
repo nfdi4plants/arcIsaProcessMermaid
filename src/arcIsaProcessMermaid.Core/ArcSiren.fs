@@ -1,7 +1,6 @@
 namespace ArcIsaProcessMermaid.Core
 
 open ARCtrl
-open ARCtrl.QueryModel
 open Siren
 open System.Collections.Generic
 
@@ -134,8 +133,10 @@ module ArcSiren =
         let mutable counter = 0
         let getId (key: string) = getId key_dict &counter key
         
-        let studies = arc.Studies
-        let assays = arc.Assays
+        let studies = arc.Studies |> Seq.sortBy (fun s -> s.Identifier)
+        
+        let assays = arc.Assays |> Seq.sortBy (fun a -> a.Identifier)
+ 
         
         // Collect all processes with context (study or assay)
         
