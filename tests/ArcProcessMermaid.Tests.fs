@@ -27,7 +27,7 @@ flowchart LR
     id_0["ArcPrototype"]
     class id_0 investigationStyle;
     id_0-->STUDY_id_1
-    subgraph STUDY_id_1[Study: Prototype for experimental data]
+    subgraph STUDY_id_1["Study: Prototype for experimental data"]
         id_2[CellCultivation]
         class id_2 processStyle;
         id_3[AccessoryDataRetrieval]
@@ -35,12 +35,12 @@ flowchart LR
     end
     class STUDY_id_1 studyStyle;
     id_0-->STUDY_id_4
-    subgraph STUDY_id_4[Study: experiment2]
+    subgraph STUDY_id_4["Study: experiment2"]
         id_5[experiment2]
         class id_5 processStyle;
     end
     class STUDY_id_4 studyStyle;
-    subgraph ASSAY_id_6[Assay: measurement1]
+    subgraph ASSAY_id_6["Assay: measurement1"]
         id_7[Cell Lysis]
         class id_7 processStyle;
         id_8[Protein Extraction]
@@ -51,7 +51,7 @@ flowchart LR
         class id_10 processStyle;
     end
     class ASSAY_id_6 assayStyle;
-    subgraph ASSAY_id_11[Assay: measurement2]
+    subgraph ASSAY_id_11["Assay: measurement2"]
     end
     class ASSAY_id_11 assayStyle;
     id_2-->|6|id_7
