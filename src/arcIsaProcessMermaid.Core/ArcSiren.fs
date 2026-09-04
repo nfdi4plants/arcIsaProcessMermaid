@@ -171,7 +171,7 @@ module ArcSiren =
             for study in studies do
                 let studyId = getId(study.Identifier)
                 let subgraphId = "STUDY_" + studyId
-                let sLabel = "Study: " + (study.Title |> Option.defaultValue study.Identifier)
+                let sLabel = $"\"Study: {(study.Title |> Option.defaultValue study.Identifier)}\""
                 
                 // Link studies to investigation
                 flowchart.linkArrow(investigationId, subgraphId)
@@ -191,7 +191,7 @@ module ArcSiren =
             for assay in assays do
                 let assayId = getId(assay.Identifier)
                 let subgraphId = "ASSAY_" + assayId
-                let aLabel = "Assay: " + assay.Identifier
+                let aLabel = $"\"Assay: {assay.Identifier}\""
 
                 // Add assay subgraph nodes
                 flowchart.subgraphNamed(subgraphId, aLabel, [
