@@ -1,3 +1,11 @@
+
+> [!NOTE]
+> **arcIsaProcessMermaid is no longer actively developed or maintained.**
+>
+> [ARCWebView](https://github.com/nfdi4plants/ARCWebView) now has a sophisticated, interactive graph view.  
+> :rocket: Check it out with [ARCitISA](https://github.com/nfdi4plants/ARCitISA) :rocket:
+
+
 # arcIsaProcessMermaid
 
 Tool to generate a minimal markdown containing a mermaid graph that displays an ARC's connections of ISA processes from ARC investigation through studies and assays
